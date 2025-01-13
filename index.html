@@ -3,31 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lubah Nelson</title>
+    <title>Interactive Portfolio</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f4f4f9;
+            color: #333;
         }
+
         header {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem 0;
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
         }
-        h1 {
-            margin: 0;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .skill-graph {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .skill {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-details {
+            margin-top: 2rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            display: none;
+        }
+
+        .project-details.active {
+            display: block;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Lubah Nelson</h1>
-    </header>
-    <main>
-        <p>Welcome to my portfolio! Stay tuned for updates.</p>
-    </main>
+
+<header>
+    <h1>Lubah Nelson's Portfolio</h1>
+    <p>Bridging research and AI innovation with creativity and impact</p>
+</header>
+
+<div class="container">
+    <section class="skill-graph">
+        <div class="skill" onclick="showDetails('gan-details')">
+            <h2>Generative Adversarial Networks (GANs)</h2>
+            <p>Click to explore related projects</p>
+        </div>
+        <div class="skill" onclick="showDetails('xai-details')">
+            <h2>Explainable AI (XAI)</h2>
+            <p>Click to explore related projects</p>
+        </div>
+        <div class="skill" onclick="showDetails('alg-details')">
+            <h2>Advanced Algorithms</h2>
+            <p>Click to explore related projects</p>
+        </div>
+    </section>
+
+    <section id="gan-details" class="project-details">
+        <h3>GANs for Synthetic Data Augmentation</h3>
+        <p>Explored the use of SuperGANs for generating synthetic time-series data, achieving 60% energy savings on IoT devices while maintaining classification accuracy.</p>
+        <ul>
+            <li><strong>Tools:</strong> PyTorch, TensorFlow</li>
+            <li><strong>Impact:</strong> Improved data efficiency and energy savings</li>
+        </ul>
+    </section>
+
+    <section id="xai-details" class="project-details">
+        <h3>Comparative Study: LIME vs. SHAP</h3>
+        <p>Evaluated and compared LIME and SHAP frameworks for model interpretability, providing actionable insights for selecting XAI tools based on model complexity.</p>
+        <ul>
+            <li><strong>Tools:</strong> Python, Scikit-learn, SHAP, LIME</li>
+            <li><strong>Impact:</strong> Enhanced interpretability in ML systems</li>
+        </ul>
+    </section>
+
+    <section id="alg-details" class="project-details">
+        <h3>Context-Tree-Based Stock Prediction</h3>
+        <p>Developed an algorithm for stock prediction and similarity measurement using probabilistic context trees, improving interpretability and efficiency in financial modeling.</p>
+        <ul>
+            <li><strong>Tools:</strong> Python, NumPy</li>
+            <li><strong>Impact:</strong> Improved forecasting accuracy and chart analysis</li>
+        </ul>
+    </section>
+</div>
+
+<footer>
+    <p>© 2025 Lubah Nelson. All rights reserved.</p>
+</footer>
+
+<script>
+    function showDetails(id) {
+        const sections = document.querySelectorAll('.project-details');
+        sections.forEach(section => section.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+    }
+</script>
+
 </body>
 </html>
