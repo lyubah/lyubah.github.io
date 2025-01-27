@@ -46,24 +46,33 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .photo {
-            text-align: center;
-            margin-bottom: 2rem;
+        /* Card Layout */
+        .about-card {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
         }
 
-        .photo img {
-            width: 240px; /* Reduced size */
-            height: 240px;
+        .about-card img {
+            width: 150px; /* Smaller photo */
+            height: auto;
             border-radius: 50%;
-            border: 4px solid #4A90E2;
+            border: 3px solid #4A90E2;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        /* Section Titles */
-        h2 {
+        .about-text {
+            flex: 1; /* Allow text to take available space */
+        }
+
+        .about-text h2 {
+            margin: 0 0 1rem;
             color: #4A90E2;
-            border-bottom: 2px solid #50E3C2;
-            padding-bottom: 0.5rem;
         }
     </style>
 </head>
@@ -75,16 +84,19 @@
 </header>
 
 <div class="container">
-    <div class="photo">
+    <div class="about-card">
+        <div class="about-text">
+            <h2>About Me</h2>
+            <p>"Aren't you too social to be a master's student in computer science?" they often ask. To which I reply in a (bad) British accent, "You mustn't have met the lot of us."</p>
+            <p>I’m all about breaking coder stereotypes, blending high-energy social skills with a passion for machine learning, data science, and mathematics. I started with a strong foundation in mathematics and data science at UC Berkeley, which naturally evolved into a focus on cutting-edge machine learning and AI research during my master's in computer science at Washington State University.</p>
+            <p>When I’m not TAing or building neural networks, you’ll find me outdoors—skiing, climbing, and chasing sunsets. I’ve also dabbled in debugging code in the wild, but the jury’s still out on whether that’s a good idea. Currently, I’m writing my master’s thesis while training for my first half marathon.</p>
+        </div>
         <img src="portfolio.png" alt="Lubah Nelson">
     </div>
+</div>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>"Aren't you too social to be a master's student in computer science?" they often ask. To which I reply in a (bad) British accent, "You mustn't have met the lot of us."</p>
-        <p>I’m all about breaking coder stereotypes, blending high-energy social skills with a passion for machine learning, data science, and mathematics. I started with a strong foundation in mathematics and data science at UC Berkeley, which naturally evolved into a focus on cutting-edge machine learning and AI research during my master's in computer science at Washington State University.</p>
-        <p>When I’m not TAing or building neural networks, you’ll find me outdoors—skiing, climbing, and chasing sunsets. I’ve also dabbled in debugging code in the wild, but the jury’s still out on whether that’s a good idea. Currently, I’m writing my master’s thesis while training for my first half marathon.</p>
-    </section>
+
+
 
 
 <!-- Research Modals -->
