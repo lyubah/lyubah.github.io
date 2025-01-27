@@ -5,7 +5,199 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0D3B66">
     <title>Lubah Nelson | Machine Learning Portfolio</title>
-    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #4A90E2; /* Solid color */
+            color: white;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Card Layout */
+        .about-card {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            flex-wrap: wrap; /* Ensure responsiveness */
+        }
+
+        .about-card img {
+            width: 200px; /* Reduced width */
+            height: 200px; /* Reduced height */
+            border-radius: 50%;
+            border: 4px solid #4A90E2;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            object-fit: contain; /* Prevents cropping */
+            background-color: #fff; /* Optional: Adds background if image has transparency */
+        }
+
+        .about-text {
+            flex: 1; /* Allow text to take available space */
+            min-width: 250px; /* Ensure minimum width for readability */
+        }
+
+        .about-text h2 {
+            margin: 0 0 1rem;
+            color: #4A90E2;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; /* 5% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            max-width: 800px; /* Limit max width */
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative; /* For positioning the close button */
+        }
+
+        .close {
+            color: #aaa;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #4A90E2;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sections */
+        section {
+            margin: 2rem 0;
+        }
+
+        section h2 {
+            font-size: 1.75rem;
+            color: #333;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        section li {
+            background-color: #fff;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            transition: background-color 0.3s ease;
+        }
+
+        section li:hover {
+            background-color: #f9f9f9;
+        }
+
+        section li strong a {
+            font-size: 1.1rem;
+            color: #4A90E2;
+        }
+
+        section li p {
+            margin: 0.5rem 0 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .about-text {
+                min-width: unset;
+            }
+
+            .about-card img {
+                width: 150px; /* Further reduced size for mobile */
+                height: 150px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -16,7 +208,7 @@
 
 <div class="container">
     <div class="about-card">
-        <img src="images/portfolio.png" alt="Portrait of Lubah Nelson"> <!-- Corrected Path -->
+        <img src="portfolio.png" alt="Portrait of Lubah Nelson">
         <div class="about-text">
             <h2>About Me</h2>
             <p>"Aren't you too social to be a master's student in computer science?" they often ask. To which I reply in a (bad) British accent, "You mustn't have met the lot of us."</p>
@@ -47,8 +239,8 @@
         <span class="close" onclick="closeModal('modal1')">&times;</span>
         <h2>GANs for Activity Recognition Survey</h2>
         <p>This paper explores the use of Generative Adversarial Networks (GANs) to generate synthetic datasets for human activity recognition tasks. By balancing data scarcity issues, it demonstrates how GANs can improve the accuracy of recognition models, particularly for underrepresented activity classes. This research highlights practical applications in wearable technology and health monitoring systems.</p>
-        <iframe src="pdfs/GANS_Survey_3.pdf" width="100%" height="600px"></iframe>
-        <p><a href="pdfs/GANS_Survey_3.pdf" download>Download PDF</a></p>
+        <iframe src="GANS_Survey_3.pdf" width="100%" height="600px"></iframe>
+        <p><a href="GANS_Survey_3.pdf" download>Download PDF</a></p>
     </div>
 </div>
 
@@ -57,8 +249,8 @@
         <span class="close" onclick="closeModal('modal2')">&times;</span>
         <h2>Comparative Analysis of Explainable AI Frameworks</h2>
         <p>A comparative analysis of SHAP and LIME frameworks applied to Logistic Regression and XGBoost models. This research focuses on how interpretability can improve trust in AI systems, especially in high-stakes environments like healthcare and finance. The study provides insights on selecting explainability techniques based on model complexity.</p>
-        <iframe src="pdfs/Comparative_Analysis_of_Explainable_AI_Frameworks.pdf" width="100%" height="600px"></iframe>
-        <p><a href="pdfs/Comparative_Analysis_of_Explainable_AI_Frameworks.pdf" download>Download PDF</a></p>
+        <iframe src="Comparative_Analysis_of_Explainable_AI_Frameworks.pdf" width="100%" height="600px"></iframe>
+        <p><a href="Comparative_Analysis_of_Explainable_AI_Frameworks.pdf" download>Download PDF</a></p>
     </div>
 </div>
 
@@ -67,8 +259,8 @@
         <span class="close" onclick="closeModal('modal3')">&times;</span>
         <h2>Context-Tree-Based Algorithm for Stock Prediction</h2>
         <p>This paper introduces a context-tree-based algorithm to analyze temporal dependencies in stock market data. By capturing hierarchical patterns, this method enhances prediction accuracy and provides a novel approach to measuring structural similarities between stocks. Applications include portfolio optimization and risk analysis.</p>
-        <iframe src="pdfs/Advanced_Algs_Final.pdf" width="100%" height="600px"></iframe>
-        <p><a href="pdfs/Advanced_Algs_Final.pdf" download>Download PDF</a></p>
+        <iframe src="Advanced_Algs_Final.pdf" width="100%" height="600px"></iframe>
+        <p><a href="Advanced_Algs_Final.pdf" download>Download PDF</a></p>
     </div>
 </div>
 
@@ -77,8 +269,8 @@
         <span class="close" onclick="closeModal('modal4')">&times;</span>
         <h2>Survey on SuperGANs for Privacy Applications</h2>
         <p>This survey paper evaluates the effectiveness of SuperGANs in generating synthetic datasets that preserve privacy. It highlights applications in healthcare and IoT devices, ensuring compliance with data regulations while maintaining data utility. The paper also provides insights into the trade-offs between privacy and performance, making it a valuable resource for privacy-centric machine learning applications.</p>
-        <iframe src="pdfs/SuperGANs_Survey.pdf" width="100%" height="600px"></iframe>
-        <p><a href="pdfs/SuperGANs_Survey.pdf" download>Download PDF</a></p>
+        <iframe src="SuperGANs_Survey.pdf" width="100%" height="600px"></iframe>
+        <p><a href="SuperGANs_Survey.pdf" download>Download PDF</a></p>
     </div>
 </div>
 
@@ -112,6 +304,25 @@
     </p>
 </footer>
 
-<script src="scripts.js"></script> <!-- External JavaScript -->
+<script>
+    function openModal(id) {
+        document.getElementById(id).style.display = "block";
+    }
+
+    function closeModal(id) {
+        document.getElementById(id).style.display = "none";
+    }
+
+    // Close modal when clicking outside of the modal content
+    window.onclick = function(event) {
+        const modals = document.getElementsByClassName('modal');
+        for(let modal of modals){
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
+</script>
+
 </body>
 </html>
