@@ -20,20 +20,22 @@
         header {
             background-color: #4A90E2; /* Solid color */
             color: white;
-            padding: 1.5rem 1rem;
+            padding: 2rem 1rem;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            /* Minimalistic shadow */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
             margin: 0;
             font-size: 2.5rem;
-            font-weight: 700;
+            font-weight: 600;
         }
 
         header p {
             margin: 0.5rem 0 0;
-            font-size: 1.2rem;
+            font-size: 1rem;
+            opacity: 0.9;
         }
 
         /* Container */
@@ -42,38 +44,176 @@
             margin: 2rem auto;
             padding: 2rem;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            /* Reduced shadow */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
-        /* Card Layout */
+        /* Minimalistic Card Layout */
         .about-card {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 2rem;
-            padding: 1.5rem;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            gap: 1.5rem;
+            padding: 2rem;
             background-color: #fff;
+            border-radius: 8px;
+            /* Subtle border */
+            border: 1px solid #e0e0e0;
+            /* Minimal shadow */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .about-card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .about-card img {
-            width: 200px; /* Adjusted photo size */
-            height: 200px; /* Ensured height matches width for a circle */
-            border-radius: 50%; /* Perfectly circular */
-            border: 3px solid #4A90E2;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 150px; /* Smaller size */
+            height: 150px;
+            border-radius: 50%;
             object-fit: cover; /* Prevents distortion */
+            /* Removed border and shadow for minimalism */
         }
 
         .about-text {
-            flex: 1; /* Allow text to take available space */
+            text-align: center;
         }
 
         .about-text h2 {
             margin: 0 0 1rem;
             color: #4A90E2;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .about-text p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; /* 5% from the top and centered */
+            padding: 20px;
+            border: 1px solid #ddd;
+            width: 90%; /* More responsive */
+            max-width: 800px; /* Limit max width */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #4A90E2;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin-top: 2rem;
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Links */
+        a {
+            color: #4A90E2;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sections */
+        section {
+            margin: 2rem 0;
+        }
+
+        section h2 {
+            font-size: 1.75rem;
+            color: #333;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        section li {
+            background-color: #fff;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            transition: background-color 0.3s ease;
+        }
+
+        section li:hover {
+            background-color: #f9f9f9;
+        }
+
+        section li strong a {
+            font-size: 1.1rem;
+            color: #4A90E2;
+        }
+
+        section li p {
+            margin: 0.5rem 0 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .about-card {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .about-text {
+                flex: 1;
+            }
         }
     </style>
 </head>
@@ -86,68 +226,34 @@
 
 <div class="container">
     <div class="about-card">
+        <img src="portfolio.png" alt="Lubah Nelson">
         <div class="about-text">
             <h2>About Me</h2>
             <p>"Aren't you too social to be a master's student in computer science?" they often ask. To which I reply in a (bad) British accent, "You mustn't have met the lot of us."</p>
             <p>I’m all about breaking coder stereotypes, blending high-energy social skills with a passion for machine learning, data science, and mathematics. I started with a strong foundation in mathematics and data science at UC Berkeley, which naturally evolved into a focus on cutting-edge machine learning and AI research during my master's in computer science at Washington State University.</p>
             <p>When I’m not TAing or building neural networks, you’ll find me outdoors—skiing, climbing, and chasing sunsets. I’ve also dabbled in debugging code in the wild, but the jury’s still out on whether that’s a good idea. Currently, I’m writing my master’s thesis while training for my first half marathon.</p>
         </div>
-        <img src="image.png" alt="Lubah Nelson">
     </div>
 </div>
 
-<!-- Research Highlights -->
-<section id="research">
-    <h2>Research Highlights</h2>
-    <ul>
-        <li>
-            <strong><a href="#" onclick="openModal('modal4')">Survey on SuperGANs for Privacy Applications</a></strong><br>
-            <p>Exploring how SuperGANs can generate privacy-preserving synthetic datasets for IoT and healthcare.</p>
-        </li>
-        <li>
-            <strong><a href="https://arxiv.org/abs/2407.08715" target="_blank">Energy-Efficient Neural Networks for IoT Devices</a></strong><br>
-            <p>Optimizing energy consumption in neural networks without sacrificing performance.</p>
-        </li>
-    </ul>
-</section>
-
-<!-- Coursework Papers -->
-<section id="coursework">
-    <h2>Coursework Papers</h2>
-    <ul>
-        <li>
-            <strong><a href="#" onclick="openModal('modal1')">GANs for Activity Recognition Survey</a></strong><br>
-            <p>Using Generative Adversarial Networks to improve human activity recognition systems.</p>
-        </li>
-        <li>
-            <strong><a href="#" onclick="openModal('modal2')">Explainable AI in Complex Systems</a></strong><br>
-            <p>Comparing SHAP and LIME frameworks to improve interpretability in complex machine learning models.</p>
-        </li>
-        <li>
-            <strong><a href="#" onclick="openModal('modal3')">Context-Tree-Based Algorithm for Stock Prediction</a></strong><br>
-            <p>Developing probabilistic algorithms for stock prediction and similarity measurement.</p>
-        </li>
-    </ul>
-</section>
-
-<!-- Modals -->
+<!-- Coursework Modals -->
 <div id="modal1" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal1')">&times;</span>
         <h2>GANs for Activity Recognition Survey</h2>
-        <p>This paper explores the use of Generative Adversarial Networks (GANs) to generate synthetic datasets for human activity recognition tasks. The research demonstrates how GANs can improve recognition accuracy, particularly for underrepresented activity classes, with applications in wearable technology and health monitoring systems.</p>
-        <p><a href="GANS_Survey (3).pdf" target="_blank">View Full Paper (PDF)</a></p>
-        <iframe src="GANS_Survey (3).pdf" width="100%" height="400px"></iframe>
+        <p>This paper explores the use of Generative Adversarial Networks (GANs) to generate synthetic datasets for human activity recognition tasks. By balancing data scarcity issues, it demonstrates how GANs can improve the accuracy of recognition models, particularly for underrepresented activity classes. This research highlights practical applications in wearable technology and health monitoring systems.</p>
+        <iframe src="GANS_Survey%20(3).pdf" width="100%" height="600px"></iframe>
+        <p><a href="GANS_Survey%20(3).pdf" download>Download PDF</a></p>
     </div>
 </div>
 
 <div id="modal2" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal2')">&times;</span>
-        <h2>Explainable AI in Complex Systems</h2>
-        <p>A comparative analysis of SHAP and LIME frameworks applied to Logistic Regression and XGBoost models. This study focuses on improving interpretability in AI systems, especially in high-stakes environments like healthcare and finance.</p>
-        <p><a href="Comparative_Analysis_of_Explainable_AI_Frameworks.pdf" target="_blank">View Full Paper (PDF)</a></p>
-        <iframe src="Comparative_Analysis_of_Explainable_AI_Frameworks.pdf" width="100%" height="400px"></iframe>
+        <h2>Comparative Analysis of Explainable AI Frameworks</h2>
+        <p>A comparative analysis of SHAP and LIME frameworks applied to Logistic Regression and XGBoost models. This research focuses on how interpretability can improve trust in AI systems, especially in high-stakes environments like healthcare and finance. The study provides insights on selecting explainability techniques based on model complexity.</p>
+        <iframe src="Comparative_Analysis_of_Explainable_AI_Frameworks.pdf" width="100%" height="600px"></iframe>
+        <p><a href="Comparative_Analysis_of_Explainable_AI_Frameworks.pdf" download>Download PDF</a></p>
     </div>
 </div>
 
@@ -155,9 +261,9 @@
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal3')">&times;</span>
         <h2>Context-Tree-Based Algorithm for Stock Prediction</h2>
-        <p>This paper introduces a context-tree-based algorithm to analyze temporal dependencies in stock market data. By capturing hierarchical patterns, this method enhances prediction accuracy and provides a novel approach to measuring structural similarities between stocks.</p>
-        <p><a href="Advacned_Algs_Final.pdf" target="_blank">View Full Paper (PDF)</a></p>
-        <iframe src="Advacned_Algs_Final.pdf" width="100%" height="400px"></iframe>
+        <p>This paper introduces a context-tree-based algorithm to analyze temporal dependencies in stock market data. By capturing hierarchical patterns, this method enhances prediction accuracy and provides a novel approach to measuring structural similarities between stocks. Applications include portfolio optimization and risk analysis.</p>
+        <iframe src="Advacned_Algs_Final.pdf" width="100%" height="600px"></iframe>
+        <p><a href="Advacned_Algs_Final.pdf" download>Download PDF</a></p>
     </div>
 </div>
 
@@ -165,13 +271,48 @@
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal4')">&times;</span>
         <h2>Survey on SuperGANs for Privacy Applications</h2>
-        <p>This survey paper evaluates the effectiveness of SuperGANs in generating synthetic datasets that preserve privacy. It highlights applications in healthcare and IoT devices, ensuring compliance with data regulations while maintaining data utility.</p>
-        <p><a href="GANS_Survey (3).pdf" target="_blank">View Full Paper (PDF)</a></p>
-        <iframe src="GANS_Survey (3).pdf" width="100%" height="400px"></iframe>
+        <p>This survey paper evaluates the effectiveness of SuperGANs in generating synthetic datasets that preserve privacy. It highlights applications in healthcare and IoT devices, ensuring compliance with data regulations while maintaining data utility. The paper also provides insights into the trade-offs between privacy and performance, making it a valuable resource for privacy-centric machine learning applications.</p>
+        <iframe src="GANS_Survey%20(3).pdf" width="100%" height="600px"></iframe>
+        <p><a href="GANS_Survey%20(3).pdf" download>Download PDF</a></p>
     </div>
 </div>
 
-<!-- Footer -->
+<section id="coursework">
+    <div class="container">
+        <h2>Coursework Papers</h2>
+        <ul>
+            <li>
+                <strong><a href="#" onclick="openModal('modal1')">GANs for Activity Recognition Survey</a></strong>
+                <p>Using Generative Adversarial Networks to improve human activity recognition systems.</p>
+            </li>
+            <li>
+                <strong><a href="#" onclick="openModal('modal2')">Comparative Analysis of Explainable AI Frameworks</a></strong>
+                <p>Comparing SHAP and LIME frameworks to improve interpretability in complex machine learning models.</p>
+            </li>
+            <li>
+                <strong><a href="#" onclick="openModal('modal3')">Context-Tree-Based Algorithm for Stock Prediction</a></strong>
+                <p>Developing probabilistic algorithms for stock prediction and similarity measurement.</p>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section id="research">
+    <div class="container">
+        <h2>Research Highlights</h2>
+        <ul>
+            <li>
+                <strong><a href="#" onclick="openModal('modal4')">Survey on SuperGANs for Privacy Applications</a></strong>
+                <p>Exploring how SuperGANs can generate privacy-preserving synthetic datasets for IoT and healthcare.</p>
+            </li>
+            <li>
+                <strong><a href="https://arxiv.org/abs/2407.08715" target="_blank">Energy-Efficient Neural Networks for IoT Devices</a></strong>
+                <p>Optimizing energy consumption in neural networks without sacrificing performance.</p>
+            </li>
+        </ul>
+    </div>
+</section>
+
 <footer>
     <p>&copy; 2025 Lubah Nelson. All rights reserved.</p>
     <p>
@@ -190,4 +331,17 @@
     function closeModal(id) {
         document.getElementById(id).style.display = "none";
     }
+
+    // Close modal when clicking outside of the modal content
+    window.onclick = function(event) {
+        const modals = document.getElementsByClassName('modal');
+        for(let modal of modals){
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
 </script>
+
+</body>
+</html>
