@@ -4,16 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0D3B66">
-    <meta name="msapplication-navbutton-color" content="#0D3B66">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta property="og:title" content="Lubah Nelson | Machine Learning Portfolio">
-    <meta property="og:description" content="Exploring new frontiers in AI, data science, and machine learning">
-    <meta property="og:image" content="portfolio.jpg">
-    <meta property="og:url" content="https://lyubah.github.io">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Lubah Nelson | Machine Learning Portfolio">
-    <meta name="twitter:description" content="Exploring new frontiers in AI, data science, and machine learning">
-    <meta name="twitter:image" content="portfolio.jpg">
     <title>Lubah Nelson | Machine Learning Portfolio</title>
     <style>
         /* General Styles */
@@ -28,39 +18,28 @@
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #4A90E2, #50E3C2);
+            background-color: #4A90E2; /* Solid color, no gradient */
             color: white;
-            padding: 2.5rem 1rem;
+            padding: 1.5rem 1rem;
             text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.8rem;
+            font-size: 2rem; /* Shortened header font */
             font-weight: 700;
-            letter-spacing: 1px;
         }
 
         header p {
-            margin-top: 0.5rem;
-            font-style: italic;
-        }
-
-        header .tagline {
-            margin-top: 1rem;
-            font-size: 1.4rem;
-            font-weight: 500;
-            color: #EAF8F4;
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem;
         }
 
         /* Container */
         .container {
             max-width: 900px;
-            margin: 3rem auto;
+            margin: 2rem auto;
             padding: 2rem;
             background: white;
             border-radius: 12px;
@@ -73,208 +52,110 @@
         }
 
         .photo img {
-            width: 250px;
-            height: 250px;
+            width: 300px; /* Increased size */
+            height: 300px;
             border-radius: 50%;
-            border: 4px solid #4A90E2;
+            border: 5px solid #4A90E2;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        section {
-            margin-bottom: 3rem;
-        }
-
+        /* Section Titles */
         h2 {
             color: #4A90E2;
             border-bottom: 2px solid #50E3C2;
             padding-bottom: 0.5rem;
         }
-
-        p, ul {
-            margin: 0.5rem 0;
-            line-height: 1.8;
-        }
-
-        ul {
-            padding-left: 1.5rem;
-        }
-
-        ul li {
-            margin-bottom: 1.5rem;
-        }
-
-        a {
-            color: #4A90E2;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding-top: 60px;
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 5% auto;
-            padding: 20px;
-            border-radius: 8px;
-            width: 80%;
-            max-width: 600px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: left;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #000;
-            text-decoration: none;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 1.5rem 1rem;
-            background: #4A90E2;
-            color: white;
-            font-size: 0.9rem;
-            margin-top: 3rem;
-        }
-
-        footer a {
-            color: #50E3C2;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
     </style>
 </head>
 <body>
 
 <header>
     <h1>Lubah Nelson</h1>
-    <p class="tagline">To Boldly Go | Lubah Nelson</p>
-    <p class="tagline">Exploring new frontiers in AI, data science, and machine learning</p>
+    <p>Exploring AI, Data Science, and Machine Learning</p>
 </header>
 
 <div class="container">
-
     <div class="photo">
-        <img src="portfolio.jpg" alt="Lubah Nelson">
+        <img src="portfolio.png" alt="Lubah Nelson">
     </div>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>"Aren't you too social to be a master's student in computer science?" they often ask. To which I reply in a (bad) British accent, "You mustn't have met the lot of us."</p>
-        <p>I’m all about breaking coder stereotypes, blending high-energy social skills with a passion for machine learning, data science, and mathematics. I started with a strong foundation in mathematics and data science at UC Berkeley, which naturally evolved into a focus on cutting-edge machine learning and AI research during my master's in computer science at Washington State University.</p>
-        <p>When I’m not TAing or building neural networks, you’ll find me outdoors—skiing, climbing, and chasing sunsets. I’ve also dabbled in debugging code in the wild, but the jury’s still out on whether that’s a good idea. Currently, I’m writing my master’s thesis while training for my first half marathon.</p>
-    </section>
+<section id="coursework">
+    <h2>Coursework Papers</h2>
+    <ul>
+        <li>
+            <strong><a href="#" onclick="openModal('modal1')">GANs for Activity Recognition Survey</a></strong><br>
+            <p>Using Generative Adversarial Networks to improve human activity recognition systems.</p>
+        </li>
+        <li>
+            <strong><a href="#" onclick="openModal('modal2')">Explainable AI in Complex Systems</a></strong><br>
+            <p>Comparing SHAP and LIME frameworks to improve interpretability in complex machine learning models.</p>
+        </li>
+        <li>
+            <strong><a href="#" onclick="openModal('modal3')">Context-Tree-Based Algorithm for Stock Prediction</a></strong><br>
+            <p>Developing probabilistic algorithms for stock prediction and similarity measurement.</p>
+        </li>
+    </ul>
+</section>
 
-    <section id="coursework">
-        <h2>Coursework Papers</h2>
-        <ul>
-            <li>
-                <strong><a href="#" onclick="openModal('modal1')">GANs for Activity Recognition Survey</a></strong><br>
-                <p>Explored the use of Generative Adversarial Networks in human activity recognition systems.</p>
-            </li>
-            <li>
-                <strong><a href="#" onclick="openModal('modal2')">Explainable AI in Complex Systems</a></strong><br>
-                <p>A comparative analysis of SHAP and LIME frameworks applied to Logistic Regression and XGBoost models.</p>
-            </li>
-            <li>
-                <strong><a href="#" onclick="openModal('modal3')">Context-Tree-Based Algorithm for Stock Prediction</a></strong><br>
-                <p>Developed a context-tree-based method for stock prediction and similarity measurement.</p>
-            </li>
-            <li>
-                <strong><a href="https://arxiv.org/abs/2407.08715" target="_blank">Energy-Efficient Neural Networks for IoT Devices</a></strong><br>
-                <p>Published paper addressing energy efficiency in neural networks for IoT devices.</p>
-            </li>
-        </ul>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>The best way to reach me is via email at <a href="mailto:lubah@berkeley.edu">lubah@berkeley.edu</a>.</p>
-        <p>You can also connect with me on:</p>
-        <ul>
-            <li><a href="https://linkedin.com/in/lubah-nelson" target="_blank">LinkedIn</a></li>
-            <li><a href="https://github.com/lyubah" target="_blank">GitHub</a></li>
-            <li><a href="https://medium.com/@lubah_99345" target="_blank">Medium Blog</a></li>
-        </ul>
-    </section>
-
-      <div id="modal1" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal1')">&times;</span>
-            <h2>GANs for Activity Recognition Survey</h2>
-            <p>This paper explores the use of Generative Adversarial Networks (GANs) to improve the robustness and accuracy of human activity recognition systems. By generating synthetic datasets that mimic real-world scenarios, the research showcases how GANs can address data scarcity and imbalances in traditional datasets. The work includes experiments and evaluations that demonstrate significant improvements in performance metrics.</p>
-        </div>
+<!-- Modals -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
+        <h2>GANs for Activity Recognition Survey</h2>
+        <p>This paper explores the use of Generative Adversarial Networks (GANs) to generate synthetic datasets for human activity recognition tasks. By balancing data scarcity issues, it demonstrates how GANs can improve the accuracy of recognition models, particularly for underrepresented activity classes. This research highlights practical applications in wearable technology and health monitoring systems.</p>
+        <iframe src="GANS_Survey (3).pdf" width="100%" height="600px"></iframe>
     </div>
+</div>
 
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal2')">&times;</span>
-            <h2>Explainable AI in Complex Systems</h2>
-            <p>A comparative analysis focusing on SHAP and LIME frameworks applied to Logistic Regression and XGBoost models. This study delves into the interpretability of AI models, emphasizing the importance of transparency in decision-making processes. The results highlight which methods are better suited for different types of machine learning tasks, along with actionable recommendations for practitioners.</p>
-        </div>
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal2')">&times;</span>
+        <h2>Explainable AI in Complex Systems</h2>
+        <p>A comparative analysis of SHAP and LIME frameworks applied to Logistic Regression and XGBoost models. This research focuses on how interpretability can improve trust in AI systems, especially in high-stakes environments like healthcare and finance. The study provides insights on selecting explainability techniques based on model complexity.</p>
+        <iframe src="Explainable_AI_in_Complex_Systems.pdf" width="100%" height="600px"></iframe>
     </div>
+</div>
 
-    <div id="modal3" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal3')">&times;</span>
-            <h2>Context-Tree-Based Algorithm for Stock Prediction</h2>
-            <p>This research presents a novel probabilistic context-tree algorithm designed for predicting stock movements and measuring structural similarities in stock data. The method leverages temporal dependencies and hierarchical patterns to improve forecasting accuracy. Results demonstrate its efficacy compared to standard baseline methods in financial modeling.</p>
-        </div>
+<div id="modal3" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal3')">&times;</span>
+        <h2>Context-Tree-Based Algorithm for Stock Prediction</h2>
+        <p>This paper introduces a context-tree-based algorithm to analyze temporal dependencies in stock market data. By capturing hierarchical patterns, this method enhances prediction accuracy and provides a novel approach to measuring structural similarities between stocks. Applications include portfolio optimization and risk analysis.</p>
+        <iframe src="Advacned_Algs_Final.pdf" width="100%" height="600px"></iframe>
     </div>
+</div>
+<section id="research">
+    <h2>Research Highlights</h2>
+    <ul>
+        <li>
+            <strong><a href="#" onclick="openModal('modal4')">Survey on SuperGANs for Privacy Applications</a></strong><br>
+            <p>Exploring how SuperGANs can generate privacy-preserving synthetic datasets for IoT and healthcare.</p>
+        </li>
+        <li>
+            <strong><a href="https://arxiv.org/abs/2407.08715" target="_blank">Energy-Efficient Neural Networks for IoT Devices</a></strong><br>
+            <p>Optimizing energy consumption in neural networks without sacrificing performance.</p>
+        </li>
+    </ul>
+</section>
 
-    <section id="research">
-        <h2>Research Highlights</h2>
-        <ul>
-            <li>
-                <strong><a href="#" onclick="openModal('modal4')">Survey on SuperGANs for Privacy Applications</a></strong><br>
-                <p>Discussing the innovative use of SuperGANs to generate synthetic datasets, ensuring privacy preservation in sensitive domains like healthcare and IoT.</p>
-            </li>
-            <li>
-                <strong><a href="https://arxiv.org/abs/2407.08715" target="_blank">Energy-Efficient Neural Networks for IoT Devices</a></strong><br>
-                <p>This paper introduces techniques for optimizing energy consumption in neural networks tailored for IoT applications without compromising performance metrics.</p>
-            </li>
-        </ul>
-    </section>
-
-    <div id="modal4" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal4')">&times;</span>
-            <h2>Survey on SuperGANs for Privacy Applications</h2>
-            <p>This survey investigates the use of SuperGANs to create synthetic datasets that enhance privacy while maintaining data utility. The paper covers applications in healthcare, IoT, and other sensitive domains where privacy concerns limit data sharing. It provides an in-depth analysis of SuperGAN architectures, evaluation metrics, and potential real-world implementations.</p>
-        </div>
+<!-- Research Modals -->
+<div id="modal4" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal4')">&times;</span>
+        <h2>Survey on SuperGANs for Privacy Applications</h2>
+        <p>This survey paper evaluates the effectiveness of SuperGANs in generating synthetic datasets that preserve privacy. It highlights applications in healthcare and IoT devices, ensuring compliance with data regulations while maintaining data utility. The paper also provides insights into the trade-offs between privacy and performance, making it a valuable resource for privacy-centric machine learning applications.</p>
+        <iframe src="GANS_Survey (3).pdf" width="100%" height="600px"></iframe>
     </div>
+</div>
 
 <footer>
-    <p>&copy; 2025 Lubah Nelson. All rights reserved. | Built with ❤️ by Lubah</p>
+    <p>&copy; 2025 Lubah Nelson. All rights reserved.</p>
+    <p>
+        Built with ❤️ by Lubah | <a href="mailto:lubah@berkeley.edu">Email Me</a> | 
+        <a href="https://linkedin.com/in/lubah-nelson" target="_blank">LinkedIn</a> | 
+        <a href="https://github.com/lyubah" target="_blank">GitHub</a> | 
+        <a href="https://medium.com/@lubah_99345" target="_blank">Medium Blog</a>
+    </p>
 </footer>
 
 <script>
