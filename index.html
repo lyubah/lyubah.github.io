@@ -20,22 +20,20 @@
         header {
             background-color: #4A90E2; /* Solid color */
             color: white;
-            padding: 2rem 1rem;
+            padding: 1.5rem 1rem;
             text-align: center;
-            /* Minimalistic shadow */
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         header h1 {
             margin: 0;
             font-size: 2.5rem;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         header p {
             margin: 0.5rem 0 0;
-            font-size: 1rem;
-            opacity: 0.9;
+            font-size: 1.2rem;
         }
 
         /* Container */
@@ -44,55 +42,38 @@
             margin: 2rem auto;
             padding: 2rem;
             background: white;
-            border-radius: 8px;
-            /* Reduced shadow */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Minimalistic Card Layout */
-        .about-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-            padding: 2rem;
-            background-color: #fff;
-            border-radius: 8px;
-            /* Subtle border */
-            border: 1px solid #e0e0e0;
-            /* Minimal shadow */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .about-card:hover {
+            border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        /* Card Layout */
+        .about-card {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
         .about-card img {
-            width: 150px; /* Smaller size */
-            height: 150px;
+            width: 200px; /* Adjusted photo size */
+            height: auto;
             border-radius: 50%;
+            border: 3px solid #4A90E2;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             object-fit: cover; /* Prevents distortion */
-            /* Removed border and shadow for minimalism */
         }
 
         .about-text {
-            text-align: center;
+            flex: 1; /* Allow text to take available space */
         }
 
         .about-text h2 {
             margin: 0 0 1rem;
             color: #4A90E2;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        .about-text p {
-            margin: 0.5rem 0;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            opacity: 0.9;
         }
 
         /* Modal Styles */
@@ -112,24 +93,23 @@
             background-color: #fefefe;
             margin: 5% auto; /* 5% from the top and centered */
             padding: 20px;
-            border: 1px solid #ddd;
-            width: 90%; /* More responsive */
-            max-width: 800px; /* Limit max width */
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .close {
             color: #aaa;
             float: right;
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
             cursor: pointer;
         }
 
         .close:hover,
         .close:focus {
-            color: #000;
+            color: black;
             text-decoration: none;
         }
 
@@ -138,9 +118,8 @@
             background-color: #4A90E2;
             color: white;
             text-align: center;
-            padding: 1.5rem 1rem;
+            padding: 1rem;
             margin-top: 2rem;
-            font-size: 0.95rem;
         }
 
         footer a {
@@ -151,69 +130,6 @@
 
         footer a:hover {
             text-decoration: underline;
-        }
-
-        /* Links */
-        a {
-            color: #4A90E2;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Sections */
-        section {
-            margin: 2rem 0;
-        }
-
-        section h2 {
-            font-size: 1.75rem;
-            color: #333;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        section li {
-            background-color: #fff;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-            border: 1px solid #e0e0e0;
-            transition: background-color 0.3s ease;
-        }
-
-        section li:hover {
-            background-color: #f9f9f9;
-        }
-
-        section li strong a {
-            font-size: 1.1rem;
-            color: #4A90E2;
-        }
-
-        section li p {
-            margin: 0.5rem 0 0;
-            font-size: 0.95rem;
-            color: #555;
-        }
-
-        /* Responsive Design */
-        @media (min-width: 768px) {
-            .about-card {
-                flex-direction: row;
-                text-align: left;
-            }
-
-            .about-text {
-                flex: 1;
-            }
         }
     </style>
 </head>
@@ -226,13 +142,13 @@
 
 <div class="container">
     <div class="about-card">
-        <img src="portfolio.png" alt="Lubah Nelson">
         <div class="about-text">
             <h2>About Me</h2>
             <p>"Aren't you too social to be a master's student in computer science?" they often ask. To which I reply in a (bad) British accent, "You mustn't have met the lot of us."</p>
             <p>I’m all about breaking coder stereotypes, blending high-energy social skills with a passion for machine learning, data science, and mathematics. I started with a strong foundation in mathematics and data science at UC Berkeley, which naturally evolved into a focus on cutting-edge machine learning and AI research during my master's in computer science at Washington State University.</p>
             <p>When I’m not TAing or building neural networks, you’ll find me outdoors—skiing, climbing, and chasing sunsets. I’ve also dabbled in debugging code in the wild, but the jury’s still out on whether that’s a good idea. Currently, I’m writing my master’s thesis while training for my first half marathon.</p>
         </div>
+        <img src="portfolio.png" alt="Lubah Nelson">
     </div>
 </div>
 
@@ -282,15 +198,15 @@
         <h2>Coursework Papers</h2>
         <ul>
             <li>
-                <strong><a href="#" onclick="openModal('modal1')">GANs for Activity Recognition Survey</a></strong>
+                <strong><a href="#" onclick="openModal('modal1')">GANs for Activity Recognition Survey</a></strong><br>
                 <p>Using Generative Adversarial Networks to improve human activity recognition systems.</p>
             </li>
             <li>
-                <strong><a href="#" onclick="openModal('modal2')">Comparative Analysis of Explainable AI Frameworks</a></strong>
+                <strong><a href="#" onclick="openModal('modal2')">Comparative Analysis of Explainable AI Frameworks</a></strong><br>
                 <p>Comparing SHAP and LIME frameworks to improve interpretability in complex machine learning models.</p>
             </li>
             <li>
-                <strong><a href="#" onclick="openModal('modal3')">Context-Tree-Based Algorithm for Stock Prediction</a></strong>
+                <strong><a href="#" onclick="openModal('modal3')">Context-Tree-Based Algorithm for Stock Prediction</a></strong><br>
                 <p>Developing probabilistic algorithms for stock prediction and similarity measurement.</p>
             </li>
         </ul>
@@ -302,11 +218,11 @@
         <h2>Research Highlights</h2>
         <ul>
             <li>
-                <strong><a href="#" onclick="openModal('modal4')">Survey on SuperGANs for Privacy Applications</a></strong>
+                <strong><a href="#" onclick="openModal('modal4')">Survey on SuperGANs for Privacy Applications</a></strong><br>
                 <p>Exploring how SuperGANs can generate privacy-preserving synthetic datasets for IoT and healthcare.</p>
             </li>
             <li>
-                <strong><a href="https://arxiv.org/abs/2407.08715" target="_blank">Energy-Efficient Neural Networks for IoT Devices</a></strong>
+                <strong><a href="https://arxiv.org/abs/2407.08715" target="_blank">Energy-Efficient Neural Networks for IoT Devices</a></strong><br>
                 <p>Optimizing energy consumption in neural networks without sacrificing performance.</p>
             </li>
         </ul>
