@@ -56,19 +56,21 @@
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             background-color: #fff;
+            flex-wrap: wrap; /* Ensure responsiveness */
         }
 
         .about-card img {
-            width: 200px; /* Adjusted photo size */
-            height: auto;
+            width: 250px; /* Increased photo size */
+            height: 250px; /* Ensure square dimensions */
             border-radius: 50%;
-            border: 3px solid #4A90E2;
+            border: 4px solid #4A90E2; /* Thicker border for better visibility */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             object-fit: cover; /* Prevents distortion */
         }
 
         .about-text {
             flex: 1; /* Allow text to take available space */
+            min-width: 250px; /* Ensure minimum width for readability */
         }
 
         .about-text h2 {
@@ -80,7 +82,7 @@
         .modal {
             display: none; /* Hidden by default */
             position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
+            z-index: 1000; /* Sit on top */
             left: 0;
             top: 0;
             width: 100%; /* Full width */
@@ -95,13 +97,17 @@
             padding: 20px;
             border: 1px solid #888;
             width: 80%; /* Could be more or less, depending on screen size */
+            max-width: 800px; /* Limit max width */
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative; /* For positioning the close button */
         }
 
         .close {
             color: #aaa;
-            float: right;
+            position: absolute;
+            top: 15px;
+            right: 20px;
             font-size: 28px;
             font-weight: bold;
             cursor: pointer;
@@ -131,6 +137,65 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Sections */
+        section {
+            margin: 2rem 0;
+        }
+
+        section h2 {
+            font-size: 1.75rem;
+            color: #333;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        section li {
+            background-color: #fff;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            transition: background-color 0.3s ease;
+        }
+
+        section li:hover {
+            background-color: #f9f9f9;
+        }
+
+        section li strong a {
+            font-size: 1.1rem;
+            color: #4A90E2;
+        }
+
+        section li p {
+            margin: 0.5rem 0 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .about-text {
+                min-width: unset;
+            }
+
+            .about-card img {
+                width: 200px;
+                height: 200px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -142,14 +207,29 @@
 
 <div class="container">
     <div class="about-card">
+        <img src="portfolio.png" alt="Lubah Nelson">
         <div class="about-text">
             <h2>About Me</h2>
             <p>"Aren't you too social to be a master's student in computer science?" they often ask. To which I reply in a (bad) British accent, "You mustn't have met the lot of us."</p>
             <p>I’m all about breaking coder stereotypes, blending high-energy social skills with a passion for machine learning, data science, and mathematics. I started with a strong foundation in mathematics and data science at UC Berkeley, which naturally evolved into a focus on cutting-edge machine learning and AI research during my master's in computer science at Washington State University.</p>
             <p>When I’m not TAing or building neural networks, you’ll find me outdoors—skiing, climbing, and chasing sunsets. I’ve also dabbled in debugging code in the wild, but the jury’s still out on whether that’s a good idea. Currently, I’m writing my master’s thesis while training for my first half marathon.</p>
         </div>
-        <img src="portfolio.png" alt="Lubah Nelson">
     </div>
+
+    <!-- Research Highlights Section Moved Under About Me -->
+    <section id="research">
+        <h2>Research Highlights</h2>
+        <ul>
+            <li>
+                <strong><a href="#" onclick="openModal('modal4')">Survey on SuperGANs for Privacy Applications</a></strong><br>
+                <p>Exploring how SuperGANs can generate privacy-preserving synthetic datasets for IoT and healthcare.</p>
+            </li>
+            <li>
+                <strong><a href="https://arxiv.org/abs/2407.08715" target="_blank">Energy-Efficient Neural Networks for IoT Devices</a></strong><br>
+                <p>Optimizing energy consumption in neural networks without sacrificing performance.</p>
+            </li>
+        </ul>
+    </section>
 </div>
 
 <!-- Coursework Modals -->
@@ -178,8 +258,8 @@
         <span class="close" onclick="closeModal('modal3')">&times;</span>
         <h2>Context-Tree-Based Algorithm for Stock Prediction</h2>
         <p>This paper introduces a context-tree-based algorithm to analyze temporal dependencies in stock market data. By capturing hierarchical patterns, this method enhances prediction accuracy and provides a novel approach to measuring structural similarities between stocks. Applications include portfolio optimization and risk analysis.</p>
-        <iframe src="Advacned_Algs_Final.pdf" width="100%" height="600px"></iframe>
-        <p><a href="Advacned_Algs_Final.pdf" download>Download PDF</a></p>
+        <iframe src="Advanced_Algs_Final.pdf" width="100%" height="600px"></iframe>
+        <p><a href="Advanced_Algs_Final.pdf" download>Download PDF</a></p>
     </div>
 </div>
 
@@ -188,8 +268,8 @@
         <span class="close" onclick="closeModal('modal4')">&times;</span>
         <h2>Survey on SuperGANs for Privacy Applications</h2>
         <p>This survey paper evaluates the effectiveness of SuperGANs in generating synthetic datasets that preserve privacy. It highlights applications in healthcare and IoT devices, ensuring compliance with data regulations while maintaining data utility. The paper also provides insights into the trade-offs between privacy and performance, making it a valuable resource for privacy-centric machine learning applications.</p>
-        <iframe src="GANS_Survey%20(3).pdf" width="100%" height="600px"></iframe>
-        <p><a href="GANS_Survey%20(3).pdf" download>Download PDF</a></p>
+        <iframe src="SuperGANs_Survey.pdf" width="100%" height="600px"></iframe>
+        <p><a href="SuperGANs_Survey.pdf" download>Download PDF</a></p>
     </div>
 </div>
 
@@ -208,22 +288,6 @@
             <li>
                 <strong><a href="#" onclick="openModal('modal3')">Context-Tree-Based Algorithm for Stock Prediction</a></strong><br>
                 <p>Developing probabilistic algorithms for stock prediction and similarity measurement.</p>
-            </li>
-        </ul>
-    </div>
-</section>
-
-<section id="research">
-    <div class="container">
-        <h2>Research Highlights</h2>
-        <ul>
-            <li>
-                <strong><a href="#" onclick="openModal('modal4')">Survey on SuperGANs for Privacy Applications</a></strong><br>
-                <p>Exploring how SuperGANs can generate privacy-preserving synthetic datasets for IoT and healthcare.</p>
-            </li>
-            <li>
-                <strong><a href="https://arxiv.org/abs/2407.08715" target="_blank">Energy-Efficient Neural Networks for IoT Devices</a></strong><br>
-                <p>Optimizing energy consumption in neural networks without sacrificing performance.</p>
             </li>
         </ul>
     </div>
