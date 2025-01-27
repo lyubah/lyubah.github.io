@@ -59,6 +59,7 @@
             flex-wrap: wrap; /* Ensure responsiveness */
         }
 
+        /* Updated Image Styling for Oval Shape */
         .about-card img {
             width: 200px; /* Adjusted width */
             height: 250px; /* Adjusted height to create an oval */
@@ -223,78 +224,46 @@
         <h2>Research Highlights</h2>
         <ul>
             <li>
-                <strong><a href="#" onclick="openModal('modal4')">Survey on SuperGANs for Privacy Applications</a></strong><br>
+                <strong>Survey on SuperGANs for Privacy Applications</strong><br>
                 <p>Exploring how SuperGANs can generate privacy-preserving synthetic datasets for IoT and healthcare.</p>
+                <!-- Link Fixed: Points to "GANS_Survey (3).pdf" -->
+                <p><a href="GANS_Survey%20(3).pdf" target="_blank">View Paper</a></p>
             </li>
             <li>
-                <strong><a href="https://arxiv.org/abs/2407.08715" target="_blank">Energy-Efficient Neural Networks for IoT Devices</a></strong><br>
+                <strong>Energy-Efficient Neural Networks for IoT Devices</strong><br>
                 <p>Optimizing energy consumption in neural networks without sacrificing performance.</p>
+                <p><a href="https://arxiv.org/abs/2407.08715" target="_blank">View Paper</a></p>
             </li>
         </ul>
     </section>
 </div>
 
-<!-- Coursework Modals -->
-<div id="modal1" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal1')">&times;</span>
-        <h2>GANs for Activity Recognition Survey</h2>
-        <p>This paper explores the use of Generative Adversarial Networks (GANs) to generate synthetic datasets for human activity recognition tasks. By balancing data scarcity issues, it demonstrates how GANs can improve the accuracy of recognition models, particularly for underrepresented activity classes. This research highlights practical applications in wearable technology and health monitoring systems.</p>
-        <iframe src="GANS_Survey_3.pdf" width="100%" height="600px"></iframe>
-        <p><a href="GANS_Survey_3.pdf" download>Download PDF</a></p>
-    </div>
-</div>
-
-<div id="modal2" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal2')">&times;</span>
-        <h2>Comparative Analysis of Explainable AI Frameworks</h2>
-        <p>A comparative analysis of SHAP and LIME frameworks applied to Logistic Regression and XGBoost models. This research focuses on how interpretability can improve trust in AI systems, especially in high-stakes environments like healthcare and finance. The study provides insights on selecting explainability techniques based on model complexity.</p>
-        <iframe src="Comparative_Analysis_of_Explainable_AI_Frameworks.pdf" width="100%" height="600px"></iframe>
-        <p><a href="Comparative_Analysis_of_Explainable_AI_Frameworks.pdf" download>Download PDF</a></p>
-    </div>
-</div>
-
-<div id="modal3" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal3')">&times;</span>
-        <h2>Context-Tree-Based Algorithm for Stock Prediction</h2>
-        <p>This paper introduces a context-tree-based algorithm to analyze temporal dependencies in stock market data. By capturing hierarchical patterns, this method enhances prediction accuracy and provides a novel approach to measuring structural similarities between stocks. Applications include portfolio optimization and risk analysis.</p>
-        <iframe src="Advanced_Algs_Final.pdf" width="100%" height="600px"></iframe>
-        <p><a href="Advanced_Algs_Final.pdf" download>Download PDF</a></p>
-    </div>
-</div>
-
-<div id="modal4" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal4')">&times;</span>
-        <h2>Survey on SuperGANs for Privacy Applications</h2>
-        <p>This survey paper evaluates the effectiveness of SuperGANs in generating synthetic datasets that preserve privacy. It highlights applications in healthcare and IoT devices, ensuring compliance with data regulations while maintaining data utility. The paper also provides insights into the trade-offs between privacy and performance, making it a valuable resource for privacy-centric machine learning applications.</p>
-        <iframe src="SuperGANs_Survey.pdf" width="100%" height="600px"></iframe>
-        <p><a href="SuperGANs_Survey.pdf" download>Download PDF</a></p>
-    </div>
-</div>
-
+<!-- Coursework Section Updated -->
 <section id="coursework">
     <div class="container">
         <h2>Coursework Papers</h2>
         <ul>
             <li>
-                <strong><a href="#" onclick="openModal('modal1')">GANs for Activity Recognition Survey</a></strong><br>
-                <p>Using Generative Adversarial Networks to improve human activity recognition systems.</p>
+                <strong>GANs for Activity Recognition Survey</strong><br>
+                <!-- Removed Link and Added Summary -->
+                <p>Using Generative Adversarial Networks to improve human activity recognition systems. This work focuses on enhancing the accuracy and reliability of activity detection models by leveraging synthetic data generated through GANs, addressing challenges related to data scarcity and diversity.</p>
             </li>
             <li>
-                <strong><a href="#" onclick="openModal('modal2')">Comparative Analysis of Explainable AI Frameworks</a></strong><br>
+                <strong>Comparative Analysis of Explainable AI Frameworks</strong><br>
                 <p>Comparing SHAP and LIME frameworks to improve interpretability in complex machine learning models.</p>
+                <p><a href="Comparative_Analysis_of_Explainable_AI_Frameworks.pdf" target="_blank">View Paper</a></p>
             </li>
             <li>
-                <strong><a href="#" onclick="openModal('modal3')">Context-Tree-Based Algorithm for Stock Prediction</a></strong><br>
+                <strong>Context-Tree-Based Algorithm for Stock Prediction</strong><br>
+                <!-- Link Fixed: Points to "Advanced_Algs_Final.pdf" -->
                 <p>Developing probabilistic algorithms for stock prediction and similarity measurement.</p>
+                <p><a href="Advanced_Algs_Final.pdf" target="_blank">View Paper</a></p>
             </li>
         </ul>
     </div>
 </section>
 
+<!-- Footer -->
 <footer>
     <p>&copy; 2025 Lubah Nelson. All rights reserved.</p>
     <p>
@@ -305,6 +274,7 @@
     </p>
 </footer>
 
+<!-- Modal Scripts -->
 <script>
     function openModal(id) {
         document.getElementById(id).style.display = "block";
