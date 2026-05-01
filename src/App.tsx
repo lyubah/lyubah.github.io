@@ -543,12 +543,13 @@ export default function App() {
 
                 <div className="hero-copy-grid">
                   <p>
-                    Over 5+ years, my work has moved from data science into forecasting systems,
-                    efficient inference research, and private startup AI infrastructure.
+                    My background runs from Berkeley data science through public-sector
+                    forecasting, graduate research at WSU, and private startup AI systems.
                   </p>
                   <p>
-                    This site starts with public proof, then moves into the paper line and the
-                    private work that is harder to show in full.
+                    I like work where model behavior has to survive deployment: evaluation,
+                    retrieval, routing, and inference decisions that affect cost, latency, and
+                    reliability.
                   </p>
                 </div>
 

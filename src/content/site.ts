@@ -119,9 +119,9 @@ export const heroMetrics: MetricEntry[] = [
 
 export const currentSignal: NowItem = {
   label: "Now building",
-  title: "Voice assistant pipeline for a startup final round",
+  title: "Private voice assistant pipeline",
   detail:
-    "A private STT → model-routing → TTS loop being built under a real deadline.",
+    "Built as an STT → model-routing → TTS loop for a startup final round, with user-facing latency and UX constraints.",
 };
 
 export const thesis: ThesisEntry = {
