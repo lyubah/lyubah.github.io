@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json && vite build",
+    "postbuild": "node scripts/sync-pages.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
