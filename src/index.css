@@ -445,6 +445,7 @@ h3 {
   color: var(--muted);
   font-size: var(--body-size);
   line-height: var(--body-line);
+  text-align: left;
 }
 
 .hero-grid {
@@ -659,10 +660,17 @@ h3 {
 }
 
 .hero-copy-column {
+  display: grid;
   width: 100%;
   max-width: 62rem;
   margin-inline: auto;
   position: relative;
+  justify-items: center;
+  text-align: left;
+}
+
+.hero-copy-column .eyebrow,
+.hero-copy-column h1 {
   text-align: center;
 }
 
@@ -670,6 +678,7 @@ h3 {
   max-width: 54ch;
   font-size: var(--body-size);
   margin-inline: auto;
+  text-align: left;
 }
 
 .hero-cta-row {
@@ -862,6 +871,7 @@ h3 {
 .now-card h3,
 .about-card h3 {
   margin-top: 0.45rem;
+  text-align: center;
 }
 
 .signal-card {
@@ -932,12 +942,17 @@ h3 {
 
 .section-heading {
   max-width: 48rem;
+  margin-inline: auto;
   margin-bottom: 1.7rem;
+  text-align: center;
 }
 
 .section-copy {
   margin-top: 0.75rem;
   font-size: var(--body-size);
+  max-width: 42rem;
+  margin-inline: auto;
+  text-align: left;
 }
 
 .research-grid,
@@ -1012,6 +1027,7 @@ h3 {
 }
 
 .status-live,
+.status-research,
 .status-thesis,
 .status-planned {
   color: var(--primary);
@@ -1030,7 +1046,8 @@ h3 {
 }
 
 .status-archived,
-.status-published {
+.status-published,
+.status-draft {
   color: #313237;
   background: rgba(19, 19, 21, 0.06);
 }
@@ -1076,6 +1093,7 @@ h3 {
   margin-top: 0.72rem;
   color: var(--muted-soft);
   font-size: var(--meta-size);
+  text-align: center;
 }
 
 .project-summary {
@@ -1232,6 +1250,14 @@ h3 {
 
 .project-roadmap-heading {
   max-width: 50rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.project-roadmap-heading .detail-copy {
+  max-width: 42rem;
+  margin-inline: auto;
+  text-align: left;
 }
 
 .thesis-landing-card {
@@ -1352,6 +1378,14 @@ h3 {
 
 .paper-archive-heading {
   max-width: 50rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.paper-archive-heading .detail-copy {
+  max-width: 42rem;
+  margin-inline: auto;
+  text-align: left;
 }
 
 .paper-trigger {
@@ -1421,11 +1455,15 @@ h3 {
 
 .contact-card h2 {
   max-width: 13ch;
+  margin-inline: auto;
+  text-align: center;
 }
 
 .contact-copy {
   max-width: 44rem;
   margin-top: 0.85rem;
+  margin-inline: auto;
+  text-align: left;
 }
 
 @media (min-width: 821px) {

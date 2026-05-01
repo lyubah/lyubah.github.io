@@ -18,6 +18,7 @@ import {
   type EvidenceLink,
   type PaperEntry,
   type ProjectEntry,
+  type WritingEntry,
 } from "./content/site";
 
 type TerminalEntry = {
@@ -33,7 +34,7 @@ const terminalEntries: TerminalEntry[] = [
   },
   {
     kind: "output",
-    text: "AI / ML engineer working between research and shipped systems.",
+    text: "AI / ML engineer connecting research depth with production systems.",
   },
   {
     kind: "command",
@@ -49,7 +50,7 @@ const terminalEntries: TerminalEntry[] = [
   },
   {
     kind: "output",
-    text: "Current focus: efficient inference, model routing, and LLM systems that behave well in the real world.",
+    text: "Graduating in May 2026 and looking for AI / ML engineering roles in LLM systems, efficient inference, evaluation, and applied ML infrastructure.",
     accent: true,
   },
 ];
@@ -81,6 +82,8 @@ function statusLabel(status: ProjectEntry["status"] | PaperEntry["status"]) {
   switch (status) {
     case "live":
       return "Live proof";
+    case "research":
+      return "Research";
     case "private-case-study":
       return "Private case study";
     case "in-progress":
@@ -89,6 +92,17 @@ function statusLabel(status: ProjectEntry["status"] | PaperEntry["status"]) {
       return "Planned";
     case "under-review":
       return "Under review";
+    default:
+      return status;
+  }
+}
+
+function writingStatusLabel(status: WritingEntry["status"]) {
+  switch (status) {
+    case "published":
+      return "Published";
+    case "draft":
+      return "Draft";
     default:
       return status;
   }
@@ -342,7 +356,7 @@ export default function App() {
   );
   const portraitAsset = "/portrait-hero.jpg";
   const primaryContactLinks = contactLinks.filter((link) =>
-    ["Email", "LinkedIn"].includes(link.label),
+    ["Email", "LinkedIn", "GitHub", "Resume PDF"].includes(link.label),
   );
   const featuredPapers = papers.filter((paper) => paper.featured);
   const archivePapers = papers.filter((paper) => !paper.featured);
@@ -503,11 +517,12 @@ export default function App() {
             <div className="hero-grid">
               <div className="hero-copy-column">
                 <p className="eyebrow">AI systems built with constraints in mind</p>
-                <h1>AI systems that do more with less.</h1>
+                <h1>AI and ML systems built for real constraints.</h1>
                 <p className="hero-lede">
-                  I build AI systems across research and production: edge models that stop early,
-                  routing and retrieval systems that cut wasted compute, and public projects that
-                  make the work easy to inspect.
+                  I build AI and ML systems where accuracy, latency, cost, and reliability are
+                  design constraints from the start. My work spans LLM routing, efficient
+                  inference research, forecasting systems, retrieval and evaluation pipelines, and
+                  production AI prototypes.
                 </p>
 
                 <div className="hero-cta-row">
@@ -528,8 +543,8 @@ export default function App() {
 
                 <div className="hero-copy-grid">
                   <p>
-                    My background spans Berkeley, federal forecasting work, graduate research at
-                    WSU, and private startup AI systems.
+                    Over 5+ years, my work has moved from data science into forecasting systems,
+                    efficient inference research, and private startup AI infrastructure.
                   </p>
                   <p>
                     This site starts with public proof, then moves into the paper line and the
@@ -562,7 +577,7 @@ export default function App() {
 
               <aside className="hero-side-column">
                 <article className="surface-card signal-card">
-                  <p className="eyebrow">Current signal</p>
+                  <p className="eyebrow">{currentSignal.label}</p>
                   <h3>{currentSignal.title}</h3>
                   <p>{currentSignal.detail}</p>
                 </article>
@@ -577,8 +592,8 @@ export default function App() {
         >
           <SectionHeading
             eyebrow="Selected work"
-            title="Projects you can actually inspect."
-            body="This section is the public proof: code, write-ups, and artifacts you can open right away."
+            title="Selected systems work."
+            body="A mix of public repos, write-ups, and research-backed builds across efficient inference, forecasting, and applied ML."
           />
           <div className="project-grid">
             {featuredProjects.map((project) => (
@@ -592,10 +607,9 @@ export default function App() {
           <div className="project-roadmap">
             <div className="project-roadmap-heading">
               <p className="eyebrow">Original work</p>
-              <h3>Research prototypes and original builds.</h3>
+              <h3>Research prototypes and algorithm builds.</h3>
               <p className="detail-copy">
-                This is where I explore ideas from scratch: testing model behavior, designing
-                algorithms, and turning rough questions into working systems.
+                Self-directed projects where I test ideas from scratch, build algorithms, and make technical behavior easier to inspect.
               </p>
             </div>
 
@@ -612,10 +626,9 @@ export default function App() {
           <div className="project-roadmap">
             <div className="project-roadmap-heading">
               <p className="eyebrow">Building next</p>
-              <h3>Public builds queued up for the next skill gaps.</h3>
+              <h3>Two public labs in progress.</h3>
               <p className="detail-copy">
-                These are placeholders on purpose. Each one is a real build queue item meant to
-                turn private or missing skills into public proof.
+                These are the next public builds meant to turn private or missing skills into visible systems work.
               </p>
             </div>
 
@@ -708,8 +721,7 @@ export default function App() {
                 <p className="eyebrow">Further papers</p>
                 <h3>Additional work from the same research line.</h3>
                 <p className="detail-copy">
-                  The thesis and core papers sit above; the rest of the under-review work stays visible
-                  here without pretending everything belongs at the same level of emphasis.
+                  The thesis and core papers sit above; the rest stays visible here without pretending every item belongs at the same level of emphasis.
                 </p>
               </div>
 
@@ -733,8 +745,8 @@ export default function App() {
         >
           <SectionHeading
             eyebrow="Private work"
-            title="Real systems, shared without the confidential parts."
-            body="These projects show the problem, the ownership, and the technical difficulty without oversharing details that should stay private."
+            title="Private AI systems work."
+            body="These case studies focus on ownership, system design, and constraints while leaving confidential implementation details out."
           />
           <div className="project-grid">
             {privateProjects.map((project) => (
@@ -752,8 +764,8 @@ export default function App() {
         >
           <SectionHeading
             eyebrow="Writing"
-            title="Writing that explains the work clearly."
-            body="I like making technical work legible. These pieces are the public explanation layer for some of the projects above."
+            title="Technical writing and drafts."
+            body="I write to make technical systems easier to inspect: what was built, why design choices were made, what failed, and how the system was evaluated."
           />
           <div className="simple-grid">
             {writings.map((entry) => (
@@ -762,19 +774,23 @@ export default function App() {
                 className="surface-card simple-card"
               >
                 <div className="card-topline">
-                  <span className="status-pill status-published">Published</span>
+                  <span className={`status-pill status-${entry.status}`}>{writingStatusLabel(entry.status)}</span>
                   <span className="year-pill">{entry.date}</span>
                 </div>
                 <h3>{entry.title}</h3>
                 <p>{entry.summary}</p>
-                <div className="link-row">
-                  {entry.proofLinks.map((link) => (
-                    <LinkPill
-                      key={`${entry.title}-${link.label}`}
-                      link={link}
-                    />
-                  ))}
-                </div>
+                {entry.proofLinks.length > 0 ? (
+                  <div className="link-row">
+                    {entry.proofLinks.map((link) => (
+                      <LinkPill
+                        key={`${entry.title}-${link.label}`}
+                        link={link}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <p className="muted-line">Draft only for now.</p>
+                )}
               </article>
             ))}
           </div>
@@ -786,10 +802,10 @@ export default function App() {
         >
           <article className="surface-card contact-card">
             <p className="eyebrow">Contact</p>
-            <h2>Open to AI systems, research, and applied ML roles.</h2>
+            <h2>Open to AI systems, ML engineering, research engineering, and applied AI roles.</h2>
             <p className="contact-copy">
-              If you want to talk about the thesis, the private systems work, the public projects,
-              or what I am building next, this is the best place to start.
+              I am especially interested in work involving LLM infrastructure, model evaluation,
+              retrieval, forecasting, efficient inference, and production AI systems.
             </p>
             <div className="link-row">
               {primaryContactLinks.map((link) => (

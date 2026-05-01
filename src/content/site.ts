@@ -10,12 +10,13 @@ export type EvidenceLinkKind =
 
 export type ProjectStatus =
   | "live"
+  | "research"
   | "private-case-study"
   | "in-progress"
   | "planned";
 
 export type PaperStatus = "under-review";
-export type WritingStatus = "published";
+export type WritingStatus = "published" | "draft";
 export type ThesisStatus = "thesis";
 
 export type EvidenceLink = {
@@ -117,17 +118,17 @@ export const heroMetrics: MetricEntry[] = [
 ];
 
 export const currentSignal: NowItem = {
-  label: "Live deliverable",
-  title: "Voice assistant build for a startup final round",
+  label: "Now building",
+  title: "Voice assistant pipeline for a startup final round",
   detail:
-    "A private STT → routing → TTS system being built under a real deadline.",
+    "A private STT → model-routing → TTS loop being built under a real deadline.",
 };
 
 export const thesis: ThesisEntry = {
   title:
     "Energy-Efficient Time Series Classification on IoT Devices with Sensor-Aware Early-Exit Machine Learning",
   summary:
-    "My M.S. thesis studies how small devices can stop collecting data once the model is already confident, instead of waiting for the full sensing window every time.",
+    "My M.S. thesis asks when an edge model has enough information to stop collecting sensor data, instead of paying the cost of a full sensing window every time.",
   institution: "Washington State University",
   date: "May 2026",
   status: "thesis",
@@ -158,12 +159,69 @@ export const thesis: ThesisEntry = {
 
 export const featuredProjects: ProjectEntry[] = [
   {
+    slug: "sensor-aware-early-exit-inference",
+    title: "Sensor-Aware Early-Exit Inference",
+    category: "Research · Thesis · Hardware-Evaluated",
+    status: "research",
+    summary:
+      "Efficient inference research for time-series classifiers that stop sensing or prediction once the model is confident enough, reducing energy use while preserving accuracy.",
+    impact:
+      "Measured 50–70% energy savings while staying within 2% accuracy across six health and activity-recognition datasets. Evaluated latency, energy, accuracy, and calibration on Nvidia AGX Xavier and Raspberry Pi hardware. Built modular SLURM/HPC infrastructure that reduced hyperparameter tuning time by 90%.",
+    stack: [
+      "Efficient Inference",
+      "Edge AI",
+      "Time Series",
+      "PyTorch",
+      "Random Forests",
+      "Calibration",
+      "SLURM/HPC",
+    ],
+    proofLinks: [
+      {
+        label: "Thesis PDF",
+        href: "/downloads/nelson-lubah-thesis.pdf",
+        kind: "download",
+      },
+      {
+        label: "Paper",
+        href: "https://www.catalyzex.com/paper/sensor-aware-classifiers-for-energy-efficient",
+        kind: "preprint",
+      },
+    ],
+    detail:
+      "Problem: battery-powered sensing systems often collect and process a full input window even when a reliable prediction could be made earlier. What I built: sensor-aware early-exit CNN and Random Forest variants, including training, thresholding, ablations, calibration analysis, and hardware evaluation on edge devices.",
+    featured: true,
+    year: "2024–2026",
+  },
+  {
+    slug: "usbr-dashboard",
+    title: "USBR Forecasting Dashboard",
+    category: "Applied Forecasting",
+    status: "live",
+    summary:
+      "A forecasting dashboard for the U.S. Bureau of Reclamation that integrates sensor, climate, satellite, and operations data into a live decision-support interface.",
+    impact:
+      "Improved forecast accuracy by 30% and replaced a slow manual workflow with a live interface.",
+    stack: ["Python", "Dash", "Flask", "Plotly", "Pandas", "USGS", "SNOTEL"],
+    proofLinks: [
+      {
+        label: "GitHub repo",
+        href: "https://github.com/lyubah/USBR-Dashboard",
+        kind: "repo",
+      },
+    ],
+    detail:
+      "This is applied forecasting work with real stakeholders, messy public data, and a concrete operational interface.",
+    featured: true,
+    year: "2024",
+  },
+  {
     slug: "music-sentiment-analyzer",
     title: "Music Sentiment Analyzer",
     category: "Applied NLP",
     status: "live",
     summary:
-      "A lyrics sentiment system that covers the full stack: data collection, labeling, model training, inference, deployment, and public write-up.",
+      "A full-stack NLP system for lyrics sentiment analysis, covering data collection, weak labeling, model training, inference, deployment, and public write-up.",
     impact:
       "Reached 92% accuracy and shipped through FastAPI, Docker, Ainize, and Vercel.",
     stack: ["Python", "BERT", "FastAPI", "Docker", "OpenAI API", "Vercel"],
@@ -185,31 +243,9 @@ export const featuredProjects: ProjectEntry[] = [
       },
     ],
     detail:
-      "This is one of the clearest public proofs of end-to-end ML work in the portfolio.",
+      "An earlier public proof of end-to-end ML work, from data collection and labeling through deployment.",
     featured: true,
     year: "2022",
-  },
-  {
-    slug: "usbr-dashboard",
-    title: "USBR Forecasting Dashboard",
-    category: "Applied Forecasting",
-    status: "live",
-    summary:
-      "A forecasting dashboard for the U.S. Bureau of Reclamation that brings sensor, climate, satellite, and operations data into one working system.",
-    impact:
-      "Improved forecast accuracy by 30% and replaced a slow manual workflow with a live interface.",
-    stack: ["Python", "Dash", "Flask", "Plotly", "Pandas", "USGS", "SNOTEL"],
-    proofLinks: [
-      {
-        label: "GitHub repo",
-        href: "https://github.com/lyubah/USBR-Dashboard",
-        kind: "repo",
-      },
-    ],
-    detail:
-      "This shows applied time-series work in the wild, not just offline modeling.",
-    featured: true,
-    year: "2024",
   },
 ];
 
@@ -242,9 +278,9 @@ export const experimentProjects: ProjectEntry[] = [
     category: "Original Algorithm Design",
     status: "live",
     summary:
-      "A personal algorithm project that turns candlestick histories into symbolic sequences, then uses context trees for next-day prediction and chart similarity.",
+      "An algorithm exploration that turns candlestick histories into symbolic sequences, then uses context trees for next-step sequence prediction and chart-pattern similarity.",
     impact:
-      "Shows original algorithm design and a real implementation, not just model application.",
+      "Shows original algorithm design, probabilistic sequence modeling, and a full implementation from scratch.",
     stack: ["Algorithms", "Time Series", "Probabilistic Modeling", "Python", "Sequence Modeling"],
     proofLinks: [
       {
@@ -289,82 +325,50 @@ export const experimentProjects: ProjectEntry[] = [
 
 export const plannedProjects: ProjectEntry[] = [
   {
-    slug: "research-rag-assistant",
-    title: "Research RAG Assistant",
+    slug: "public-model-router-lab",
+    title: "Public Model Router Lab",
     category: "Planned Public Build",
     status: "planned",
     summary:
-      "A citation-backed retrieval system for papers, notes, and technical documents, built to make retrieval quality visible instead of just wrapping an API.",
+      "A simplified public version of a model-selection system for routing requests across LLMs based on task type, context length, latency constraints, cost estimates, and model capability metadata.",
     impact:
-      "This would make retrieval, evaluation, and low-latency serving visible in one public system.",
-    stack: ["RAG", "Vector Search", "Reranking", "FastAPI", "Eval Harness", "Citations"],
+      "Turns private routing work into public evidence for model selection, evaluation, and cost/latency tradeoffs.",
+    stack: ["Python", "FastAPI", "LLM Routing", "Model Registry", "Cost Modeling", "Evaluation"],
     proofLinks: [],
     detail:
-      "The finished version should ship with a repo, a small UI, retrieval benchmarks, and a short write-up on design tradeoffs.",
+      "Planned links: repo, write-up, and demo once the public lab is ready.",
     featured: false,
-    year: "Queued",
+    year: "Building",
   },
   {
-    slug: "lora-finetuning-lab",
-    title: "LoRA Fine-Tuning Lab",
+    slug: "research-rag-evals-assistant",
+    title: "Research RAG + Evals Assistant",
     category: "Planned Public Build",
     status: "planned",
     summary:
-      "A parameter-efficient fine-tuning project on a focused domain dataset, comparing the base model against a LoRA-adapted version.",
+      "A retrieval system for technical documents that makes retrieval quality visible through citation-backed answers, hybrid search, reranking, and metrics like Recall@k, MRR, and nDCG.",
     impact:
-      "Adds visible experience with PEFT, domain adaptation, and the question of when fine-tuning actually helps.",
-    stack: ["LoRA", "PEFT", "Hugging Face", "Experiment Tracking", "Evaluation"],
+      "Makes retrieval, reranking, and evaluation concrete in one public system instead of leaving that work behind NDA.",
+    stack: ["RAG", "Hybrid Search", "Reranking", "Evals", "Citations", "FastAPI"],
     proofLinks: [],
     detail:
-      "The finished version should include dataset curation, training configs, before-and-after evals, and a short quality-versus-cost write-up.",
+      "Planned links: repo, write-up, and demo once the evaluation loop and citations are working cleanly.",
     featured: false,
-    year: "Queued",
-  },
-  {
-    slug: "llm-evals-guardrails",
-    title: "LLM Evals & Guardrails Bench",
-    category: "Planned Public Build",
-    status: "planned",
-    summary:
-      "A repeatable evaluation harness for LLM workflows, with regression tests, failure cases, prompt-injection checks, and answer-quality scoring.",
-    impact:
-      "Shows the production side of LLM work: not just making a demo answer once, but checking whether it stays reliable.",
-    stack: ["LLM Evals", "Guardrails", "Test Sets", "Failure Analysis", "Prompt Security"],
-    proofLinks: [],
-    detail:
-      "This is one of the cleanest ways to make reliability visible alongside private routing work that cannot yet be shown in full.",
-    featured: false,
-    year: "Queued",
-  },
-  {
-    slug: "distillation-serving-lab",
-    title: "Distillation & Serving Optimization Lab",
-    category: "Planned Public Build",
-    status: "planned",
-    summary:
-      "An optimization build that compares a larger teacher setup against a smaller distilled or compressed serving path, with latency, cost, and quality measured side by side.",
-    impact:
-      "Directly extends the efficient-inference story from the thesis into modern LLM serving.",
-    stack: ["Distillation", "Quantization", "vLLM", "Latency Profiling", "Inference Cost"],
-    proofLinks: [],
-    detail:
-      "The goal is not just to compress a model, but to show when compression is worth it and how to serve the result well.",
-    featured: false,
-    year: "Queued",
+    year: "Building",
   },
 ];
 
 export const privateProjects: ProjectEntry[] = [
   {
     slug: "nonya-skandha",
-    title: "NONYA / Skandha",
-    category: "Private AI Systems",
+    title: "Stealth AI Company",
+    category: "Private AI Systems · Stealth Company",
     status: "private-case-study",
     summary:
-      "A private routing layer designed to send work to the cheapest model that can still do the job well.",
+      "Private LLM systems work for a stealth AI company, spanning agent orchestration, evaluation, model routing, and production AI infrastructure.",
     impact:
-      "This is the clearest bridge between the thesis work and production AI systems: model selection, cost control, async services, and end-to-end ownership.",
-    stack: ["Python", "FastAPI", "LLM Routing", "LoRA", "Async Systems", "Model Selection"],
+      "Worked as the sole AI/ML engineer with founders to design systems across cost, latency, quality, and deployment constraints while keeping proprietary model-selection logic private.",
+    stack: ["Python", "FastAPI", "LLM Routing", "LoRA", "Async Systems", "Evaluation"],
     proofLinks: [
       {
         label: "Request case-study details",
@@ -373,7 +377,7 @@ export const privateProjects: ProjectEntry[] = [
       },
     ],
     detail:
-      "The implementation stays private, but the public framing can still show the problem, your ownership, and the systems thinking behind it.",
+      "I work directly with founders on private LLM infrastructure and internal AI systems. The work includes prompt tests, model comparison, routing benchmarks, latency/cost logging, provider integration, and LoRA-based adaptation. NONYA / Skandha is the internal workstream name; the implementation stays private, but the public framing can still show the ownership and systems decisions behind it.",
     featured: true,
     year: "2025–2026",
   },
@@ -385,7 +389,7 @@ export const privateProjects: ProjectEntry[] = [
     summary:
       "A private voice assistant that combines speech-to-text, model routing, and speech synthesis in one user-facing loop.",
     impact:
-      "This is live proof of agentic system design under a real deadline, not a toy demo.",
+      "Shows user-facing AI systems work under a real deadline, with routing and interface decisions that matter in practice.",
     stack: ["Speech-to-Text", "TTS", "Agentic Systems", "Routing", "UX"],
     proofLinks: [
       {
@@ -407,7 +411,7 @@ export const privateProjects: ProjectEntry[] = [
     summary:
       "An early company thread focused on turning agentic AI patterns into durable products.",
     impact:
-      "Keeps the founder thread visible without overpowering the hiring and research story the portfolio needs right now.",
+      "Keeps the founder thread visible without overpowering the stronger technical evidence elsewhere in the portfolio.",
     stack: ["Agentic Workflows", "Product Strategy", "System Design", "AI Ops"],
     proofLinks: [
       {
@@ -431,7 +435,7 @@ export const papers: PaperEntry[] = [
       "Sensor-Aware Classifiers for Energy-Efficient Time Series Applications on IoT Devices",
     status: "under-review",
     summary:
-      "Shows that small battery-powered devices can stop collecting sensor data as soon as the model is confident, saving energy without giving up much accuracy.",
+      "Shows that small battery-powered devices can stop collecting sensor data as soon as the model is confident, reducing sensing and inference cost without giving up much accuracy.",
     theme: "Edge AI · efficient inference · time-series classification",
     year: "2025",
     venue: "JMLR",
@@ -471,7 +475,7 @@ export const papers: PaperEntry[] = [
       "Beyond 1-NN Accuracy: Objective-Informed Benchmarking of Time Series Similarity Measures",
     status: "under-review",
     summary:
-      "Argues that the usual way of ranking time-series similarity measures is too narrow. Using 81 datasets, it builds a benchmark that better reflects how those measures behave in downstream AI tasks.",
+      "Builds an 81-dataset benchmarking pipeline showing that the usual way of ranking time-series similarity measures does not hold up across downstream tasks like classification, clustering, and density analysis.",
     theme: "Benchmarking · similarity learning · 81-dataset evaluation",
     year: "2026",
     venue: "Journal of Time Series Analysis",
@@ -515,13 +519,29 @@ export const writings: WritingEntry[] = [
       },
     ],
   },
+  {
+    title: "How I Think About LLM Model Routing",
+    date: "Draft",
+    summary:
+      "A planned write-up on model selection, latency/cost tradeoffs, and what changes when routing becomes a systems problem instead of a prompt problem.",
+    status: "draft",
+    proofLinks: [],
+  },
+  {
+    title: "Why Early-Exit Models Are Really About Information Cost",
+    date: "Draft",
+    summary:
+      "A planned bridge piece connecting edge early exits to the same decision problem that shows up in LLM routing and retrieval.",
+    status: "draft",
+    proofLinks: [],
+  },
 ];
 
 export const aboutIntro =
-  "I’m an AI / ML engineer working between research and production. My path runs from a B.A. in Data Science at UC Berkeley to an M.S. in Computer Science at Washington State University, with work across startups, public-sector forecasting, and efficient inference research.";
+  "I started in data science because I liked turning messy information into decisions. Over time I moved closer to the systems layer: how models are trained, evaluated, deployed, and kept efficient under real constraints. I’m finishing an M.S. in Computer Science at Washington State University, where my research focuses on efficient inference for time-series models on edge devices. That same question now shows up in my applied work on LLM routing, retrieval, evaluation, and private AI systems.";
 
 export const researchIntro =
-  "The paper line is all about one question: how much computation do you actually need before a model knows enough to answer well? That question ties together the thesis on sensor-aware early exits, the Random Forest follow-up, and the benchmarking work on time-series similarity.";
+  "My research asks when an AI system has enough information to stop, route, or simplify computation without losing useful accuracy. That question appears in edge sensing, early-exit classifiers, time-series benchmarking, and modern LLM routing.";
 
 export const contactLinks: EvidenceLink[] = [
   {
