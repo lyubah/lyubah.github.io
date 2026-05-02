@@ -3,7 +3,6 @@ import AmbientCanopy from "./components/AmbientCanopy";
 import {
   aboutIntro,
   contactLinks,
-  currentSignal,
   experimentProjects,
   featuredProjects,
   githubProfileUrl,
@@ -50,7 +49,7 @@ const terminalEntries: TerminalEntry[] = [
   },
   {
     kind: "output",
-    text: "Graduating in May 2026 and looking for AI / ML engineering roles in LLM systems, efficient inference, evaluation, and applied ML infrastructure.",
+    text: "Graduating May 2026 and looking for AI / ML engineering roles in LLM systems, efficient inference, evaluation, and applied ML infrastructure.",
     accent: true,
   },
 ];
@@ -275,20 +274,18 @@ function ProjectCard({ project }: { project: ProjectEntry }) {
           <span key={item}>{item}</span>
         ))}
       </div>
-      <div className="link-row">
-        {project.proofLinks.length > 0 ? (
-          project.proofLinks.map((link) => (
+      {project.proofLinks.length > 0 ? (
+        <div className="link-row">
+          {project.proofLinks.map((link) => (
             <LinkPill
               key={`${project.slug}-${link.label}`}
               link={link}
             />
-          ))
-        ) : (
-          <p className="muted-line">
-            Placeholder for the public repo, write-up, and demo that will land when this build ships.
-          </p>
-        )}
-      </div>
+          ))}
+        </div>
+      ) : project.status === "planned" ? (
+        <p className="muted-line">Public repo, write-up, and demo will be added as the build ships.</p>
+      ) : null}
     </article>
   );
 }
@@ -360,6 +357,8 @@ export default function App() {
   );
   const featuredPapers = papers.filter((paper) => paper.featured);
   const archivePapers = papers.filter((paper) => !paper.featured);
+  const publishedWritings = writings.filter((entry) => entry.status === "published");
+  const draftWritings = writings.filter((entry) => entry.status === "draft");
 
   const scrollToSection = (
     sectionId: (typeof navSections)[number]["id"],
@@ -525,6 +524,19 @@ export default function App() {
                   production AI prototypes.
                 </p>
 
+                <div className="metric-grid">
+                  {heroMetrics.map((metric) => (
+                    <article
+                      key={metric.label}
+                      className="surface-card metric-card"
+                    >
+                      <strong>{metric.value}</strong>
+                      <span>{metric.label}</span>
+                      <p>{metric.detail}</p>
+                    </article>
+                  ))}
+                </div>
+
                 <div className="hero-cta-row">
                   <a
                     className="primary-cta"
@@ -541,31 +553,6 @@ export default function App() {
                   </a>
                 </div>
 
-                <div className="hero-copy-grid">
-                  <p>
-                    My background runs from Berkeley data science through public-sector
-                    forecasting, graduate research at WSU, and private startup AI systems.
-                  </p>
-                  <p>
-                    I like work where model behavior has to survive deployment: evaluation,
-                    retrieval, routing, and inference decisions that affect cost, latency, and
-                    reliability.
-                  </p>
-                </div>
-
-                <div className="metric-grid">
-                  {heroMetrics.map((metric) => (
-                    <article
-                      key={metric.label}
-                      className="surface-card metric-card"
-                    >
-                      <strong>{metric.value}</strong>
-                      <span>{metric.label}</span>
-                      <p>{metric.detail}</p>
-                    </article>
-                  ))}
-                </div>
-
                 <a
                   className="scroll-cue"
                   href="#featured"
@@ -575,14 +562,6 @@ export default function App() {
                   <span>Scroll into selected work</span>
                 </a>
               </div>
-
-              <aside className="hero-side-column">
-                <article className="surface-card signal-card">
-                  <p className="eyebrow">{currentSignal.label}</p>
-                  <h3>{currentSignal.title}</h3>
-                  <p>{currentSignal.detail}</p>
-                </article>
-              </aside>
             </div>
           </div>
         </section>
@@ -607,8 +586,8 @@ export default function App() {
 
           <div className="project-roadmap">
             <div className="project-roadmap-heading">
-              <p className="eyebrow">Original work</p>
-              <h3>Research prototypes and algorithm builds.</h3>
+              <p className="eyebrow">Research labs</p>
+              <h3>Research prototypes and original builds.</h3>
               <p className="detail-copy">
                 Self-directed projects where I test ideas from scratch, build algorithms, and make technical behavior easier to inspect.
               </p>
@@ -624,24 +603,26 @@ export default function App() {
             </div>
           </div>
 
-          <div className="project-roadmap">
-            <div className="project-roadmap-heading">
-              <p className="eyebrow">Building next</p>
-              <h3>Two public labs in progress.</h3>
-              <p className="detail-copy">
-                These are the next public builds meant to turn private or missing skills into visible systems work.
-              </p>
-            </div>
+          {plannedProjects.length > 0 ? (
+            <div className="project-roadmap">
+              <div className="project-roadmap-heading">
+                <p className="eyebrow">Building next</p>
+                <h3>Two public labs in progress.</h3>
+                <p className="detail-copy">
+                  These are the next public builds meant to turn private or missing skills into visible systems work.
+                </p>
+              </div>
 
-            <div className="project-grid">
-              {plannedProjects.map((project) => (
-                <ProjectCard
-                  key={project.slug}
-                  project={project}
-                />
-              ))}
+              <div className="project-grid">
+                {plannedProjects.map((project) => (
+                  <ProjectCard
+                    key={project.slug}
+                    project={project}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
+          ) : null}
         </section>
 
         <section
@@ -765,22 +746,26 @@ export default function App() {
         >
           <SectionHeading
             eyebrow="Writing"
-            title="Technical writing and drafts."
-            body="I write to make technical systems easier to inspect: what was built, why design choices were made, what failed, and how the system was evaluated."
+            title="Technical writing."
+            body="I write to make technical systems easier to inspect."
           />
-          <div className="simple-grid">
-            {writings.map((entry) => (
-              <article
-                key={entry.title}
-                className="surface-card simple-card"
-              >
-                <div className="card-topline">
-                  <span className={`status-pill status-${entry.status}`}>{writingStatusLabel(entry.status)}</span>
-                  <span className="year-pill">{entry.date}</span>
-                </div>
-                <h3>{entry.title}</h3>
-                <p>{entry.summary}</p>
-                {entry.proofLinks.length > 0 ? (
+          <div className="project-roadmap">
+            <div className="project-roadmap-heading">
+              <p className="eyebrow">Published</p>
+              <h3>Published pieces.</h3>
+            </div>
+            <div className="simple-grid">
+              {publishedWritings.map((entry) => (
+                <article
+                  key={entry.title}
+                  className="surface-card simple-card"
+                >
+                  <div className="card-topline">
+                    <span className={`status-pill status-${entry.status}`}>{writingStatusLabel(entry.status)}</span>
+                    <span className="year-pill">{entry.date}</span>
+                  </div>
+                  <h3>{entry.title}</h3>
+                  <p>{entry.summary}</p>
                   <div className="link-row">
                     {entry.proofLinks.map((link) => (
                       <LinkPill
@@ -789,11 +774,32 @@ export default function App() {
                       />
                     ))}
                   </div>
-                ) : (
-                  <p className="muted-line">Draft only for now.</p>
-                )}
-              </article>
-            ))}
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="project-roadmap">
+            <div className="project-roadmap-heading">
+              <p className="eyebrow">In progress</p>
+              <h3>Drafts in progress.</h3>
+            </div>
+            <div className="simple-grid">
+              {draftWritings.map((entry) => (
+                <article
+                  key={entry.title}
+                  className="surface-card simple-card"
+                >
+                  <div className="card-topline">
+                    <span className={`status-pill status-${entry.status}`}>{writingStatusLabel(entry.status)}</span>
+                    <span className="year-pill">{entry.date}</span>
+                  </div>
+                  <h3>{entry.title}</h3>
+                  <p>{entry.summary}</p>
+                  <p className="muted-line">Writing now.</p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -807,6 +813,12 @@ export default function App() {
             <p className="contact-copy">
               I am especially interested in work involving LLM infrastructure, model evaluation,
               retrieval, forecasting, efficient inference, and production AI systems.
+            </p>
+            <p className="contact-copy">
+              I like work where model behavior has to survive deployment: evaluation, retrieval,
+              routing, and inference decisions that affect cost, latency, and reliability. I&apos;m
+              also exploring the founder path by building systems that turn the efficiency question
+              into a product.
             </p>
             <div className="link-row">
               {primaryContactLinks.map((link) => (

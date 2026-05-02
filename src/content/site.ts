@@ -126,17 +126,17 @@ export const currentSignal: NowItem = {
 
 export const thesis: ThesisEntry = {
   title:
-    "Energy-Efficient Time Series Classification on IoT Devices with Sensor-Aware Early-Exit Machine Learning",
+    "Energy-Efficient Time Series Classification on IoT Devices with Sensor-Aware Early-Exit ML",
   summary:
-    "My M.S. thesis asks when an edge model has enough information to stop collecting sensor data, instead of paying the cost of a full sensing window every time.",
+    "My M.S. thesis asks a systems question: when does a model have enough information to stop collecting sensor data? SEE challenges the usual assumption that better predictions require more data by gating on confidence rather than data completeness.",
   institution: "Washington State University",
   date: "May 2026",
   status: "thesis",
   keyFindings: [
     "Built CNN and Random Forest early-exit variants that cut both sensing and compute.",
     "Saved 50–70% of sensing energy while staying within 2% of full-window accuracy.",
-    "Measured 29–42% end-to-end savings on Raspberry Pi hardware with real sensors.",
-    "Showed that confidence-aware stopping can beat compute-only optimization for edge IoT systems.",
+    "Hardware-validated 29–42% end-to-end savings on Raspberry Pi systems with real sensors.",
+    "Showed that confidence-aware stopping can beat compute-only optimization for IoT.",
   ],
   downloadAsset: {
     label: "Download thesis PDF",
@@ -160,13 +160,13 @@ export const thesis: ThesisEntry = {
 export const featuredProjects: ProjectEntry[] = [
   {
     slug: "sensor-aware-early-exit-inference",
-    title: "Sensor-Aware Early-Exit Inference",
-    category: "Research · Thesis · Hardware-Evaluated",
+    title: "SEE Framework — Sensor-Aware Early-Exit Inference",
+    category: "Research · Hardware-Validated Build",
     status: "research",
     summary:
       "Efficient inference research for time-series classifiers that stop sensing or prediction once the model is confident enough, reducing energy use while preserving accuracy.",
     impact:
-      "Measured 50–70% energy savings while staying within 2% accuracy across six health and activity-recognition datasets. Evaluated latency, energy, accuracy, and calibration on Nvidia AGX Xavier and Raspberry Pi hardware. Built modular SLURM/HPC infrastructure that reduced hyperparameter tuning time by 90%.",
+      "Hardware-validated on Raspberry Pi with 54–65% sensing-energy savings within 3.8 percentage points of simulation, beat compute-only baselines by 6.3× and retrospective baselines by 2–3× where sensing drives most IoT energy use, validated across six health and activity-recognition datasets within 2% accuracy, and cut hyperparameter tuning time by 90% via Bayesian optimization on SLURM/HPC.",
     stack: [
       "Efficient Inference",
       "Edge AI",
@@ -251,6 +251,28 @@ export const featuredProjects: ProjectEntry[] = [
 
 export const experimentProjects: ProjectEntry[] = [
   {
+    slug: "probformer",
+    title: "ProbFormer — Exact Uncertainty for Vision Transformers",
+    category: "Research Prototype",
+    status: "live",
+    summary:
+      "Compiled ViT-Base into a tractable probabilistic circuit, enabling closed-form propagation of aleatoric and epistemic uncertainty without Monte Carlo sampling or deep ensembles.",
+    impact:
+      "Reduced expected calibration error by 40%, lowered negative log-likelihood by 21%, stayed within 0.3 percentage points of standard fine-tuning accuracy, and ran 5× faster than Monte Carlo dropout.",
+    stack: [
+      "PyTorch",
+      "Probabilistic Circuits",
+      "Uncertainty Quantification",
+      "Vision Transformers",
+      "Calibration",
+    ],
+    proofLinks: [],
+    detail:
+      "A research prototype that treats uncertainty as something the model should carry analytically, not approximate expensively after the fact.",
+    featured: false,
+    year: "2024",
+  },
+  {
     slug: "supergan",
     title: "SuperGAN for Edge Intelligence",
     category: "Research Prototype",
@@ -269,6 +291,22 @@ export const experimentProjects: ProjectEntry[] = [
     ],
     detail:
       "A real prototype built to explore synthetic data, privacy, and robustness when signals are sparse or unreliable.",
+    featured: false,
+    year: "2024",
+  },
+  {
+    slug: "genome-fingerprinting",
+    title: "Viral Genome Similarity via Generalized Suffix Trees",
+    category: "Algorithm Design",
+    status: "live",
+    summary:
+      "Implemented a C++ generalized suffix tree for viral genome comparison and similarity scoring, using sequence structure instead of full dynamic-programming alignment everywhere.",
+    impact:
+      "Computed the similarity matrix 28× faster than full Needleman–Wunsch alignment on roughly 30kb SARS-CoV-2 genomes while keeping the algorithm open to CLI and test-driven use.",
+    stack: ["C++", "Algorithms", "Computational Genomics", "Sequence Analysis"],
+    proofLinks: [],
+    detail:
+      "Shows algorithmic cost awareness at the sequence level, not only at the model or systems layer.",
     featured: false,
     year: "2024",
   },
@@ -324,38 +362,6 @@ export const experimentProjects: ProjectEntry[] = [
 ];
 
 export const plannedProjects: ProjectEntry[] = [
-  {
-    slug: "public-model-router-lab",
-    title: "Public Model Router Lab",
-    category: "Planned Public Build",
-    status: "planned",
-    summary:
-      "A simplified public version of a model-selection system for routing requests across LLMs based on task type, context length, latency constraints, cost estimates, and model capability metadata.",
-    impact:
-      "Turns private routing work into public evidence for model selection, evaluation, and cost/latency tradeoffs.",
-    stack: ["Python", "FastAPI", "LLM Routing", "Model Registry", "Cost Modeling", "Evaluation"],
-    proofLinks: [],
-    detail:
-      "Planned links: repo, write-up, and demo once the public lab is ready.",
-    featured: false,
-    year: "Building",
-  },
-  {
-    slug: "research-rag-evals-assistant",
-    title: "Research RAG + Evals Assistant",
-    category: "Planned Public Build",
-    status: "planned",
-    summary:
-      "A retrieval system for technical documents that makes retrieval quality visible through citation-backed answers, hybrid search, reranking, and metrics like Recall@k, MRR, and nDCG.",
-    impact:
-      "Makes retrieval, reranking, and evaluation concrete in one public system instead of leaving that work behind NDA.",
-    stack: ["RAG", "Hybrid Search", "Reranking", "Evals", "Citations", "FastAPI"],
-    proofLinks: [],
-    detail:
-      "Planned links: repo, write-up, and demo once the evaluation loop and citations are working cleanly.",
-    featured: false,
-    year: "Building",
-  },
 ];
 
 export const privateProjects: ProjectEntry[] = [
@@ -403,28 +409,6 @@ export const privateProjects: ProjectEntry[] = [
     featured: true,
     year: "2026",
   },
-  {
-    slug: "agentic-ai-company",
-    title: "Agentic AI Venture",
-    category: "Founder Track",
-    status: "in-progress",
-    summary:
-      "An early company thread focused on turning agentic AI patterns into durable products.",
-    impact:
-      "Keeps the founder thread visible without overpowering the stronger technical evidence elsewhere in the portfolio.",
-    stack: ["Agentic Workflows", "Product Strategy", "System Design", "AI Ops"],
-    proofLinks: [
-      {
-        label: "Start a conversation",
-        href: "mailto:lubah.nelson@gmail.com?subject=Agentic%20AI%20venture",
-        kind: "contact",
-      },
-    ],
-    detail:
-      "This should feel early on purpose: credible, intentional, and still taking shape.",
-    featured: false,
-    year: "Now",
-  },
 ];
 
 export const papers: PaperEntry[] = [
@@ -435,7 +419,7 @@ export const papers: PaperEntry[] = [
       "Sensor-Aware Classifiers for Energy-Efficient Time Series Applications on IoT Devices",
     status: "under-review",
     summary:
-      "Shows that small battery-powered devices can stop collecting sensor data as soon as the model is confident, reducing sensing and inference cost without giving up much accuracy.",
+      "The JMLR submission contributes the formal SEE framework: confidence-based gates that stop sensor acquisition early, analysis of the accuracy-energy tradeoff, and empirical validation across six IoT datasets. This is the primary publication record for the thesis work.",
     theme: "Edge AI · efficient inference · time-series classification",
     year: "2025",
     venue: "JMLR",
@@ -455,7 +439,7 @@ export const papers: PaperEntry[] = [
       "Sequential and Sensor-Aware Early Exit Random Forests for Real-Time Decision Making",
     status: "under-review",
     summary:
-      "Applies the same idea to Random Forests, keeping the system fast and interpretable while cutting redundant work in real-time settings.",
+      "Extends the confidence-gating idea to Random Forests, keeping the system interpretable and fast while cutting redundant work in real-time decision pipelines.",
     theme: "Random forests · early exits · real-time decision systems",
     year: "2026",
     venue: "ESWEEK",
@@ -492,24 +476,10 @@ export const papers: PaperEntry[] = [
 
 export const writings: WritingEntry[] = [
   {
-    title: "Creating a Music Sentiment Analyzer with the Power of Ainize and Open-Source AI",
-    date: "June 2022",
-    summary:
-      "A technical write-up that turns the Music Sentiment Analyzer into public proof of applied NLP and shipping work.",
-    status: "published",
-    proofLinks: [
-      {
-        label: "Read on Medium",
-        href: "https://medium.com/@lubah_99345/creating-a-music-sentiment-analyzer-with-power-of-ainize-and-open-source-ai-84e3a277b495",
-        kind: "article",
-      },
-    ],
-  },
-  {
     title: "Let's Talk XAI: A Comparative Analysis of LIME and SHAP",
     date: "January 2025",
     summary:
-      "A plain-language companion to the interpretability experiment, written for a broader audience.",
+      "A plain-language companion to the interpretability experiment — what each method does, when local surrogate explanations are enough, and when you want more stable feature attributions.",
     status: "published",
     proofLinks: [
       {
@@ -520,10 +490,24 @@ export const writings: WritingEntry[] = [
     ],
   },
   {
+    title: "Creating a Music Sentiment Analyzer with the Power of Ainize and Open-Source AI",
+    date: "June 2022",
+    summary:
+      "Technical write-up turning the Music Sentiment Analyzer into public proof of applied NLP and end-to-end shipping — from Genius API scraping through BERT fine-tuning, FastAPI, and Vercel deployment.",
+    status: "published",
+    proofLinks: [
+      {
+        label: "Read on Medium",
+        href: "https://medium.com/@lubah_99345/creating-a-music-sentiment-analyzer-with-power-of-ainize-and-open-source-ai-84e3a277b495",
+        kind: "article",
+      },
+    ],
+  },
+  {
     title: "How I Think About LLM Model Routing",
     date: "Draft",
     summary:
-      "A planned write-up on model selection, latency/cost tradeoffs, and what changes when routing becomes a systems problem instead of a prompt problem.",
+      "A write-up on model selection, latency/cost tradeoffs, and what changes when routing becomes a systems problem instead of a prompt problem. Writing now.",
     status: "draft",
     proofLinks: [],
   },
@@ -531,14 +515,14 @@ export const writings: WritingEntry[] = [
     title: "Why Early-Exit Models Are Really About Information Cost",
     date: "Draft",
     summary:
-      "A planned bridge piece connecting edge early exits to the same decision problem that shows up in LLM routing and retrieval.",
+      "A bridge piece connecting edge early exits to the same decision problem that shows up in LLM routing, retrieval, and evaluation — the cost-of-knowing question at every layer.",
     status: "draft",
     proofLinks: [],
   },
 ];
 
 export const aboutIntro =
-  "I started in data science because I liked turning messy information into decisions. Over time I moved closer to the systems layer: how models are trained, evaluated, deployed, and kept efficient under real constraints. I’m finishing an M.S. in Computer Science at Washington State University, where my research focuses on efficient inference for time-series models on edge devices. That same question now shows up in my applied work on LLM routing, retrieval, evaluation, and private AI systems.";
+  "I build AI and ML systems where accuracy, latency, cost, and reliability are design constraints from the start. My work spans LLM routing, efficient inference research, forecasting systems, retrieval and evaluation pipelines, and production AI prototypes.";
 
 export const researchIntro =
   "My research asks when an AI system has enough information to stop, route, or simplify computation without losing useful accuracy. That question appears in edge sensing, early-exit classifiers, time-series benchmarking, and modern LLM routing.";
@@ -558,11 +542,6 @@ export const contactLinks: EvidenceLink[] = [
     label: "GitHub",
     href: "https://github.com/lyubah",
     kind: "repo",
-  },
-  {
-    label: "Medium",
-    href: "https://medium.com/@lubah_99345",
-    kind: "article",
   },
   {
     label: "Resume PDF",
