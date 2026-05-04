@@ -96,24 +96,24 @@ export const navSections = [
 
 export const heroMetrics: MetricEntry[] = [
   {
-    value: "50–70%",
-    label: "Sensing energy savings",
-    detail: "Measured across health-monitoring datasets in the thesis evaluation.",
+    value: "29–42%",
+    label: "End-to-end Raspberry Pi savings",
+    detail: "Measured on real hardware in the thesis evaluation.",
   },
   {
-    value: "90%",
-    label: "Tuning time reduction",
-    detail: "Achieved by replacing manual tuning sweeps with Bayesian optimization on SLURM.",
+    value: "6",
+    label: "Datasets in early-exit evaluation",
+    detail: "Validated across six health and activity-recognition datasets.",
   },
   {
-    value: "81",
-    label: "Datasets in the similarity pipeline",
-    detail: "End-to-end benchmark pipeline built and debugged for time-series similarity work.",
+    value: "30%",
+    label: "Forecast accuracy improvement",
+    detail: "Achieved in the USBR forecasting dashboard work.",
   },
   {
     value: "92%",
-    label: "Public NLP accuracy",
-    detail: "Reached on a public BERT sentiment system shipped with FastAPI, Docker, and Vercel.",
+    label: "Deployed BERT system accuracy",
+    detail: "Reached in the public Music Sentiment Analyzer shipped with FastAPI, Docker, and Vercel.",
   },
 ];
 
@@ -149,11 +149,6 @@ export const thesis: ThesisEntry = {
       href: "/downloads/nelson-lubah-thesis.pdf",
       kind: "download",
     },
-    {
-      label: "Read JMLR paper",
-      href: "https://www.catalyzex.com/paper/sensor-aware-classifiers-for-energy-efficient",
-      kind: "preprint",
-    },
   ],
 };
 
@@ -181,11 +176,6 @@ export const featuredProjects: ProjectEntry[] = [
         label: "Thesis PDF",
         href: "/downloads/nelson-lubah-thesis.pdf",
         kind: "download",
-      },
-      {
-        label: "Paper",
-        href: "https://www.catalyzex.com/paper/sensor-aware-classifiers-for-energy-efficient",
-        kind: "preprint",
       },
     ],
     detail:
@@ -414,62 +404,41 @@ export const privateProjects: ProjectEntry[] = [
 export const papers: PaperEntry[] = [
   {
     slug: "sensor-aware-classifiers",
-    displayTitle: "Sensor-Aware Early-Exit Classifiers",
+    displayTitle: "Under-review paper on sensor-aware early exits",
     fullTitle:
-      "Sensor-Aware Classifiers for Energy-Efficient Time Series Applications on IoT Devices",
+      "Double-blind work on confidence-based early exits for energy-aware time-series classification",
     status: "under-review",
     summary:
-      "The JMLR submission contributes the formal SEE framework: confidence-based gates that stop sensor acquisition early, analysis of the accuracy-energy tradeoff, and empirical validation across six IoT datasets. This is the primary publication record for the thesis work.",
-    theme: "Edge AI · efficient inference · time-series classification",
+      "Presents the formal SEE framework: confidence-based gates that stop sensor acquisition early, analysis of the accuracy-energy tradeoff, and empirical validation across six IoT datasets.",
+    theme: "Efficient inference · edge sensing · time-series classification",
     year: "2025",
-    venue: "JMLR",
-    proofLinks: [
-      {
-        label: "Read paper",
-        href: "https://www.catalyzex.com/paper/sensor-aware-classifiers-for-energy-efficient",
-        kind: "preprint",
-      },
-    ],
+    proofLinks: [],
     featured: true,
   },
   {
     slug: "sequential-early-exit-rf",
-    displayTitle: "Sequential Sensor-Aware RF",
+    displayTitle: "Under-review paper on early-exit random forests",
     fullTitle:
-      "Sequential and Sensor-Aware Early Exit Random Forests for Real-Time Decision Making",
+      "Double-blind work extending sensor-aware early exits to Random Forest decision pipelines",
     status: "under-review",
     summary:
       "Extends the confidence-gating idea to Random Forests, keeping the system interpretable and fast while cutting redundant work in real-time decision pipelines.",
-    theme: "Random forests · early exits · real-time decision systems",
+    theme: "Random forests · early exits · real-time systems",
     year: "2026",
-    venue: "ESWEEK",
-    proofLinks: [
-      {
-        label: "Read paper",
-        href: "/downloads/sensor-aware-rf.pdf",
-        kind: "download",
-      },
-    ],
+    proofLinks: [],
     featured: true,
   },
   {
     slug: "beyond-1nn",
-    displayTitle: "Beyond 1-NN Accuracy",
+    displayTitle: "Under-review paper on time-series similarity benchmarks",
     fullTitle:
-      "Beyond 1-NN Accuracy: Objective-Informed Benchmarking of Time Series Similarity Measures",
+      "Double-blind work on downstream-aware benchmarking for time-series similarity measures",
     status: "under-review",
     summary:
       "Builds an 81-dataset benchmarking pipeline showing that the usual way of ranking time-series similarity measures does not hold up across downstream tasks like classification, clustering, and density analysis.",
-    theme: "Benchmarking · similarity learning · 81-dataset evaluation",
+    theme: "Benchmarking · similarity learning · downstream evaluation",
     year: "2026",
-    venue: "Journal of Time Series Analysis",
-    proofLinks: [
-      {
-        label: "Read paper",
-        href: "/downloads/beyond-1nn.pdf",
-        kind: "download",
-      },
-    ],
+    proofLinks: [],
     featured: true,
   },
 ];
@@ -502,22 +471,6 @@ export const writings: WritingEntry[] = [
         kind: "article",
       },
     ],
-  },
-  {
-    title: "How I Think About LLM Model Routing",
-    date: "Draft",
-    summary:
-      "A write-up on model selection, latency/cost tradeoffs, and what changes when routing becomes a systems problem instead of a prompt problem. Writing now.",
-    status: "draft",
-    proofLinks: [],
-  },
-  {
-    title: "Why Early-Exit Models Are Really About Information Cost",
-    date: "Draft",
-    summary:
-      "A bridge piece connecting edge early exits to the same decision problem that shows up in LLM routing, retrieval, and evaluation — the cost-of-knowing question at every layer.",
-    status: "draft",
-    proofLinks: [],
   },
 ];
 

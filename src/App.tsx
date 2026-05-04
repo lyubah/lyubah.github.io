@@ -108,7 +108,7 @@ function writingStatusLabel(status: WritingEntry["status"]) {
 }
 
 function paperMetaLabel(paper: PaperEntry) {
-  return paper.venue ?? paper.year;
+  return paper.year;
 }
 
 function LinkPill({ link }: { link: EvidenceLink }) {
@@ -358,7 +358,6 @@ export default function App() {
   const featuredPapers = papers.filter((paper) => paper.featured);
   const archivePapers = papers.filter((paper) => !paper.featured);
   const publishedWritings = writings.filter((entry) => entry.status === "published");
-  const draftWritings = writings.filter((entry) => entry.status === "draft");
 
   const scrollToSection = (
     sectionId: (typeof navSections)[number]["id"],
@@ -747,7 +746,7 @@ export default function App() {
           <SectionHeading
             eyebrow="Writing"
             title="Technical writing."
-            body="I write to make technical systems easier to inspect."
+            body="A couple of public write-ups that explain what I built and why the design choices mattered."
           />
           <div className="project-roadmap">
             <div className="project-roadmap-heading">
@@ -774,29 +773,6 @@ export default function App() {
                       />
                     ))}
                   </div>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <div className="project-roadmap">
-            <div className="project-roadmap-heading">
-              <p className="eyebrow">In progress</p>
-              <h3>Drafts in progress.</h3>
-            </div>
-            <div className="simple-grid">
-              {draftWritings.map((entry) => (
-                <article
-                  key={entry.title}
-                  className="surface-card simple-card"
-                >
-                  <div className="card-topline">
-                    <span className={`status-pill status-${entry.status}`}>{writingStatusLabel(entry.status)}</span>
-                    <span className="year-pill">{entry.date}</span>
-                  </div>
-                  <h3>{entry.title}</h3>
-                  <p>{entry.summary}</p>
-                  <p className="muted-line">Writing now.</p>
                 </article>
               ))}
             </div>
